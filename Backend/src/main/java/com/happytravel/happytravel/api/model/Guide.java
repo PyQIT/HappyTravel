@@ -19,8 +19,8 @@ public class Guide{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(name = "employeeID", nullable = false)
-    @NotNull(message = "Employee ID cannot be empty.")
-    private Long employeeName;
+	@ManyToOne
+	@JoinColumn(name = "employeeID", referencedColumnName = "id")
+	private Employee employeeID;
 
 }

@@ -18,7 +18,7 @@ public Class Office{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "addressid", nullable = false)
-	@NotNull(message = "Adress ID cannot be empty.")
-	private Long adressID;
+	@ManyToOne
+	@JoinColumn(name = "adresID", referencedColumnName = "id")
+	private Adres adresID;
 }

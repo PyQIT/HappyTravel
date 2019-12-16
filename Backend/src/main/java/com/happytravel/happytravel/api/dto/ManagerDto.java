@@ -10,5 +10,5 @@ import javax.persistence.Enumerated;
 public class ManagerDto {
 
     private Long id;
-    private Long employeeID;
+    private Employee employeeID;
 }

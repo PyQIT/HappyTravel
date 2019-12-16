@@ -19,11 +19,11 @@ public class GuideTravel{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(name = "guideID", nullable = false)
-    @NotNull(message = "Guide ID cannot be empty.")
-    private Long guideID;
+	@ManyToOne
+	@JoinColumn(name = "guideID", referencedColumnName = "id")
+	private Guide guideID;
 
-	@Column(name = "travelID", nullable = false)
-    @NotNull(message = "Travel ID cannot be empty.")
-    private Long travelID;
+	@ManyToOne
+	@JoinColumn(name = "travelID", referencedColumnName = "id")
+	private Travel travelID;
 }

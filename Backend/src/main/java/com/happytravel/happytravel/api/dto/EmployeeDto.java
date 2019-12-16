@@ -10,8 +10,8 @@ import javax.persistence.Enumerated;
 public class EmployeeDto {
 
     private Long id;
-    private Long personID;
-	private Long officeID;
+    private Person personID;
+	private Office officeID;
 	private Long salary;
 	private Date hiringDate;
 	private Date firingDate;

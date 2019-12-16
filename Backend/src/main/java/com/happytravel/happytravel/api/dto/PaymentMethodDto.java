@@ -8,7 +8,7 @@ import lombok.Data;
 public class PaymentMethodDto {
 
     private Long id;   
-	private Long clientID;
+	private Client clientID;
 	private Long cardNr;
 	private Date expires;
 	private Long cardCode;

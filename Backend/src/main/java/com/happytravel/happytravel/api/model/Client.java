@@ -19,7 +19,7 @@ public class Client{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "personid", nullable = false)
-    @NotNull(message = "person ID cannot be empty.")
-    private Long personID;
+    @ManyToOne
+	@JoinColumn(name = "personID", referencedColumnName = "id")
+	private Person personID;
 }

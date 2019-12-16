@@ -7,5 +7,5 @@ import lombok.Data;
 public class ClientDto {
 
     private Long id;
-    private Long personID;
+    private Person personID;
 }

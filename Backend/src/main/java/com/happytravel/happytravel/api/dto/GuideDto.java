@@ -8,6 +8,6 @@ import lombok.Data;
 public class GuideDto {
 
     private Long id;   
-	private Long employeeID;
+	private Employee employeeID;
     
 }

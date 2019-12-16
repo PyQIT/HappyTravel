@@ -8,7 +8,7 @@ import lombok.Data;
 public class GuideTravelDto {
 
     private Long id;   
-	private Long guideID;
-	private Long travelID;
+	private Guide guideID;
+	private Travel travelID;
     
 }

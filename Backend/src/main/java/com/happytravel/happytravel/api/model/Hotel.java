@@ -23,7 +23,7 @@ public class Hotel{
     @NotNull(message = "Hotel name cannot be empty.")
     private String hotelName;
 	
-	@Column(name = "adresID", nullable = false)
-    @NotNull(message = "Adres ID cannot be empty.")
-    private Long adresID;
+	@ManyToOne
+	@JoinColumn(name = "adresID", referencedColumnName = "id")
+	private Adres adresID;
 }

@@ -9,6 +9,6 @@ public class HotelDto {
 
     private Long id;   
 	private String hotelName;
-    private Long adresID;
+    private Adres adresID;
     
 }

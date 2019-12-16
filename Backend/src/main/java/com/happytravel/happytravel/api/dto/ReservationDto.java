@@ -8,11 +8,10 @@ import javax.persistence.Enumerated;
 
 @Data
 public class ReservationDto {
-
     private Long id;
-    private Long clientID;
-    private Long sellerID;
-    private Long travelID;
+    private Client clientID;
+    private Seller sellerID;
+    private Travel travelID;
     private Long adultNumber;
     private Long childrenNumber;
     @Enumerated(EnumType.STRING)
