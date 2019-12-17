@@ -5,9 +5,10 @@ import lombok.Data;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.util.Date;
 
 @Data
-public class ReservationDto {
+public class TravelDto {
 
     private Long id;
     private Date startDate;
@@ -18,5 +19,4 @@ public class ReservationDto {
 	private Long cateringCost;
 	private Long alcoholCost;
 	private String description;
-	private Long description;
 }

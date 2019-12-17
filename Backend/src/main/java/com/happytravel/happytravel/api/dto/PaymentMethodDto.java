@@ -1,7 +1,10 @@
 package com.happytravel.happytravel.api.dto;
 
+import com.happytravel.happytravel.api.model.Client;
 import com.happytravel.happytravel.api.model.enums.*;
 import lombok.Data;
+
+import java.util.Date;
 
 
 @Data

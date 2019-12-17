@@ -1,10 +1,10 @@
 package com.happytravel.happytravel.api.model;
 
-import com.happytravel.happytravel.api.model.enums.*;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Getter
 @Setter

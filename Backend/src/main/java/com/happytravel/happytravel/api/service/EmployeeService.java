@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    List<Reservation> getEmployees();
+    List<Employee> getEmployees();
 
 }

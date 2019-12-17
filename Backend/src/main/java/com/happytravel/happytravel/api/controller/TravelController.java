@@ -17,11 +17,11 @@ import java.util.stream.Collectors;
 @RequestMapping()
 public class TravelController {
 
-    private final ReservationService reservationService;
+    private final TravelService travelService;
 
     @GetMapping("/travel")
     @ResponseStatus(HttpStatus.OK)
-    public List<TravelDto> getReservations() {
+    public List<TravelDto> getTravel() {
         List<Travel> travel = travelService.getTravel();
         return travel.stream().map(TravelTransformer::convertToDto).collect(Collectors.toList());
     }

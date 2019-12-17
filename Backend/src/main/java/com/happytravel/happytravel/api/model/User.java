@@ -2,6 +2,7 @@ package com.happytravel.happytravel.api.model;
 
 import com.happytravel.happytravel.api.model.enums.*;
 import lombok.*;
+import org.hibernate.usertype.UserType;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

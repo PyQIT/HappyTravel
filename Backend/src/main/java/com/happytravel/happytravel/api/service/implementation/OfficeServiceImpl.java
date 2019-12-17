@@ -15,7 +15,7 @@ public class OfficeServiceImpl implements OfficeService {
     private final OfficeRepository officeRepository;
 
     @Override
-    public List<Office> getOffice(){
+    public List<Office> getOffices(){
         return officeRepository.getAllOffices();
     }
 
