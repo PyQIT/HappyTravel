@@ -1,10 +1,10 @@
 package com.happytravel.happytravel.api.model;
 
-import com.happytravel.happytravel.api.model.enums.*;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -51,7 +51,7 @@ public class Travel{
     @NotNull(message = "Description cannot be empty.")
     private String desctription;
 	
-	@Column(name = "hotelID", nullable = false)
-    @NotNull(message = "Hotel ID cannot be empty.")
-    private Long hotelID;	
+	@ManyToOne
+	@JoinColumn(name = "hotelID", referencedColumnName = "id")
+	private Hotel hotelID;
 }

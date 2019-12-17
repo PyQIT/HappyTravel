@@ -1,5 +1,8 @@
 package com.happytravel.happytravel.api.dto;
 
+import com.happytravel.happytravel.api.model.Client;
+import com.happytravel.happytravel.api.model.Seller;
+import com.happytravel.happytravel.api.model.Travel;
 import com.happytravel.happytravel.api.model.enums.*;
 import lombok.Data;
 
@@ -8,11 +11,10 @@ import javax.persistence.Enumerated;
 
 @Data
 public class ReservationDto {
-
     private Long id;
-    private Long clientID;
-    private Long sellerID;
-    private Long travelID;
+    private Client clientID;
+    private Seller sellerID;
+    private Travel travelID;
     private Long adultNumber;
     private Long childrenNumber;
     @Enumerated(EnumType.STRING)

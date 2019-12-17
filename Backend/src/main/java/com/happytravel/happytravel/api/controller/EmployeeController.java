@@ -21,7 +21,7 @@ public class EmployeeController {
 
     @GetMapping("/employees")
     @ResponseStatus(HttpStatus.OK)
-    public List<EmployeenDto> getEmployees() {
+    public List<EmployeeDto> getEmployees() {
         List<Employee> employee = employeeService.getEmployees();
         return employee.stream().map(EmployeeTransformer::convertToDto).collect(Collectors.toList());
     }

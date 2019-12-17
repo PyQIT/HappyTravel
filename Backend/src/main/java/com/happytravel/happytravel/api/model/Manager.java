@@ -19,7 +19,7 @@ public class Manager{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "employeeid", nullable = false)
-    @NotNull(message = "Employee ID cannot be empty.")
-    private Long employeeID;
+    @ManyToOne
+	@JoinColumn(name = "employeeID", referencedColumnName = "id")
+	private Employee employeeID;
 }

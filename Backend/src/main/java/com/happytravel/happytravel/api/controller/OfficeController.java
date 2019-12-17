@@ -15,13 +15,13 @@ import java.util.stream.Collectors;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping()
-public Class OfficeController{
+public class OfficeController{
 	private final OfficeService officeService;
 	
 	@GetMapping("/offices")
 	@ResponseStatus(HttpStatus.OK)
 	public List<OfficeDto> getOffices(){
-		List<Offices> office = officeService.getOffices();
+		List<Office> office = officeService.getOffices();
 		return office.stream().map(OfficeTransformer::convertToDto).collect(Collectors.toList());
 	}
 }

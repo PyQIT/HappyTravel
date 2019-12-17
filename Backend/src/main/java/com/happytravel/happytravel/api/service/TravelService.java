@@ -4,7 +4,7 @@ import com.happytravel.happytravel.api.model.Travel;
 
 import java.util.List;
 
-public interface ReservationService {
+public interface TravelService {
 
     List<Travel> getTravel();
 

@@ -11,14 +11,14 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Entity
 @Table(name = "office")
-public Class Office{
+public class Office{
 	
 	@Id
 	@Column(name = "id", nullable = false, unique = true)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "addressid", nullable = false)
-	@NotNull(message = "Adress ID cannot be empty.")
-	private Long adressID;
+	@ManyToOne
+	@JoinColumn(name = "adresID", referencedColumnName = "id")
+	private Adres adresID;
 }

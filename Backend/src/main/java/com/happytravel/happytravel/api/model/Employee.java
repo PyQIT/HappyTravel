@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -18,13 +19,13 @@ public class Employee{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(name = "personid", nullable = false)
-    @NotNull(message = "Person ID cannot be empty.")
-    private Long personID;
+	@ManyToOne
+	@JoinColumn(name = "personID", referencedColumnName = "id")
+	private Person personID;
 	
-	@Column(name = "officeid", nullable = false)
-    @NotNull(message = "Office ID cannot be empty.")
-    private Long officeID;
+	@ManyToOne
+	@JoinColumn(name = "officeID", referencedColumnName = "id")
+	private Office officeID;
 	
 	@Column(name = "salary", nullable = false)
     @NotNull(message = "salary cannot be empty.")

@@ -1,5 +1,6 @@
 package com.happytravel.happytravel.api.dto;
 
+import com.happytravel.happytravel.api.model.User;
 import com.happytravel.happytravel.api.model.enums.*;
 import lombok.Data;
 
@@ -7,7 +8,7 @@ import lombok.Data;
 public class PersonDto {
 
     private Long id;
-	private Long userID;
+	private User userID;
     private String name;
 	private String surname;
 	private Long pesel;

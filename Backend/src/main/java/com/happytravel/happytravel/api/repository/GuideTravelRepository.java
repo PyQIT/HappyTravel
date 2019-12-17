@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TravelRepository extends JpaRepository<GuideTravel, Long> {
+public interface GuideTravelRepository extends JpaRepository<GuideTravel, Long> {
 
     @Query(value = "select * from guidetravel", nativeQuery = true)
-    List<Travel> getAllGuideTravels();
+    List<GuideTravel> getAllGuideTravels();
 
 }

@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -19,9 +20,9 @@ public class PaymentMethod{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(name = "clientID", nullable = false)
-    @NotNull(message = "Client ID cannot be empty.")
-    private Long clientID;
+	@ManyToOne
+	@JoinColumn(name = "clientID", referencedColumnName = "id")
+	private Client clientID;
 	
 	@Column(name = "cardNr", nullable = false)
     @NotNull(message = "Card Nr cannot be empty.")

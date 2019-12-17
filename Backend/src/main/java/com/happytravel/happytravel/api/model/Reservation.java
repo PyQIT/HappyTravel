@@ -19,17 +19,17 @@ public class Reservation{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "clientid", nullable = false)
-    @NotNull(message = "Client ID cannot be empty.")
-    private Long clientID;
+    @ManyToOne
+	@JoinColumn(name = "clientID", referencedColumnName = "id")
+	private Client clientID;
 
-    @Column(name = "sellerid", nullable = false)
-    @NotNull(message = "Seller ID cannot be empty.")
-    private Long sellerID;
+    @ManyToOne
+	@JoinColumn(name = "sellerID", referencedColumnName = "id")
+	private Seller sellerID;
 
-    @Column(name = "travelid", nullable = false)
-    @NotNull(message = "Travel ID cannot be empty.")
-    private Long travelID;
+    @ManyToOne
+	@JoinColumn(name = "travelID", referencedColumnName = "id")
+	private Travel travelID;
 
     @Column(name = "adultnumber", nullable = false)
     @NotNull(message = "Adult number cannot be empty.")

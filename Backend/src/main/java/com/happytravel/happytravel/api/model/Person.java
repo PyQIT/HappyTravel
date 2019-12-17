@@ -19,9 +19,9 @@ public class Person{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(name = "userid", nullable = false)
-    @NotNull(message = "User ID cannot be empty.")
-    private Long userID;
+	@OneToOne
+	@JoinColumn(name = "userID", referencedColumnName = "id")
+	private User userID;
 	
 	@Column(name = "name", nullable = false)
     @NotNull(message = "name cannot be empty.")

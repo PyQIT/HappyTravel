@@ -7,13 +7,13 @@ import org.springframework.beans.BeanUtils;
 public class OfficeTransformer {
 
     public static OfficeDto convertToDto(Office office) {
-        ReservationDto officeDto = new officeDto();
+        OfficeDto officeDto = new OfficeDto();
         BeanUtils.copyProperties(office, officeDto);
         return officeDto;
     }
 
     public static Office convertToEntity(OfficeDto officeDto) {
-        Office office = new office();
+        Office office = new Office();
         BeanUtils.copyProperties(officeDto, office);
         return office;
     }
