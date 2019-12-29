@@ -1,0 +1,14 @@
+INSERT INTO user SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Uzytkownik.csv');
+INSERT INTO person SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Osoba.csv');
+INSERT INTO client SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Klient.csv');
+INSERT INTO PaymentMethod SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/MetodaPlatnosci.csv');
+INSERT INTO Adres SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Adres.csv');
+INSERT INTO Hotel SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Hotel.csv');
+INSERT INTO Travel SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Wycieczka.csv');
+INSERT INTO Office SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Biuro.csv');
+INSERT INTO Employee SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Pracownik.csv');
+INSERT INTO Seller SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Sprzedawca.csv');
+INSERT INTO Manager SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Kierownik.csv');
+INSERT INTO Guide SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Przewodnik.csv');
+INSERT INTO GuideTravel SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Przewodnik_na_wycieczce.csv');
+INSERT INTO Reservation SELECT * FROM CSVREAD('C:/Users/Kamil/Desktop/HappyTravel-master/Backend/src/main/resources/data/Rezerwacja.csv');
