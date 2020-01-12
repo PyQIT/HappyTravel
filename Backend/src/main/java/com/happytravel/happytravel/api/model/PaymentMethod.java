@@ -19,11 +19,11 @@ public class PaymentMethod{
     @Column(name = "id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
-	@ManyToOne
-	@JoinColumn(name = "clientID", referencedColumnName = "id")
-	private Client clientID;
-	
+
+    @Column(name = "cardCode", nullable = false)
+    @NotNull(message = "Card Code cannot be empty.")
+    private String cardCode;
+
 	@Column(name = "cardNr", nullable = false)
     @NotNull(message = "Card Nr cannot be empty.")
     private Long cardNr;
@@ -31,8 +31,8 @@ public class PaymentMethod{
 	@Column(name = "expires", nullable = false)
     @NotNull(message = "Expires cannot be empty.")
     private Date expires;
-	
-	@Column(name = "cardCode", nullable = false)
-    @NotNull(message = "Card Code cannot be empty.")
-    private Long cardCode;
+
+    @ManyToOne
+    @JoinColumn(name = "clientID", referencedColumnName = "id")
+    private Client clientID;
 }
