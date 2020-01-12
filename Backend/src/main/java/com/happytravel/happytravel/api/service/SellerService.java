@@ -7,5 +7,6 @@ import java.util.List;
 public interface SellerService {
 
     List<Seller> getSellers();
-
+    Long getMaxId();
+    int insertSeller(Long id, Long sellerId);
 }

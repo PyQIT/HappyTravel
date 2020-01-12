@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface PaymentMethodRepository extends JpaRepository<PaymentMethod, Long> {
 
-    @Query(value = "select * from paymentMethod", nativeQuery = true)
+    @Query(value = "select * from paymenMethod", nativeQuery = true)
     List<PaymentMethod> getAllPaymenMethods();
 
 }

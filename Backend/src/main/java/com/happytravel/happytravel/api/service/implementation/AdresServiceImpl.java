@@ -18,5 +18,9 @@ public class AdresServiceImpl implements AdresService {
     public List<Adres> getAdress(){
         return adresRepository.getAllAdress();
     }
+    @Override
+    public List<Adres> getAdressByCountry(String country){
+        return adresRepository.getAdressByCountry(country);
+    }
 
 }

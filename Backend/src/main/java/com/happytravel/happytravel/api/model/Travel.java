@@ -47,9 +47,9 @@ public class Travel{
     @NotNull(message = "Alcohol cost cannot be empty.")
     private Long alcoholCost;
 	
-	@Column(name = "desctription", nullable = false)
+	@Column(name = "description", nullable = false)
     @NotNull(message = "Description cannot be empty.")
-    private String desctription;
+    private String description;
 	
 	@ManyToOne
 	@JoinColumn(name = "hotelID", referencedColumnName = "id")

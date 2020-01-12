@@ -12,5 +12,4 @@ public interface TravelRepository extends JpaRepository<Travel, Long> {
 
     @Query(value = "select * from travel", nativeQuery = true)
     List<Travel> getAllTravel();
-
 }

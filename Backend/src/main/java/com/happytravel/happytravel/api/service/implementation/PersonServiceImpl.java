@@ -18,5 +18,10 @@ public class PersonServiceImpl implements PersonService {
     public List<Person> getPersons(){
         return personRepository.getAllPersons();
     }
+    @Override
+    public Long getMaxId(){return personRepository.getMaxId();}
+    public int insertPerson(Long id, String email, String name, Long pesel, String phonenumber, String surname, Long userid){
+         return personRepository.insertPerson(id, email, name, pesel, phonenumber, surname, userid);
+    }
 
 }

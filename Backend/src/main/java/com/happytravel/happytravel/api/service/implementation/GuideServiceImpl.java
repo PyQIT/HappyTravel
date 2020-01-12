@@ -18,5 +18,8 @@ public class GuideServiceImpl implements GuideService {
     public List<Guide> getGuides(){
         return guideRepository.getAllGuides();
     }
-
+    @Override
+    public Long getMaxId(){return guideRepository.getMaxId();}
+    @Override
+    public int insertGuide(Long id, Long employeeId){return guideRepository.insertGuide(id, employeeId);}
 }
