@@ -1,15 +1,15 @@
-0,,Sample,Sample,0,Sample
-0,,Walencja,Hiszpania,22,Passeig de Nepto
-1,,Marsylia,Francja,34,Quai du Port
-2,,Monako,Monako,1,Place du Casino
-3,,Neapol,Wlochy,55,Corso Umberto I
-4,,Rzym,Wlochy,7,Via Nazionale
-5,,Aleksandria,Egipt,9,Mohammed Farid
-6,,Bangkok,Tajlandia,320,Si Lorn
-7,,Accra,Ghana,24,Fourth Otswe
-8,,Porto,Portugalia,29,Alameda de Basillo Teles
-9,,Casablanca,Maroko,41,Boulevard de La Corniche
-10,,Warszawa,Polska,12,Rozana
-11,,Karkow,Polska,7,Biskupia
-12,2A,Poznam,Polska,43,Stawna
+id,city,country,houseNr,street
+0,Walencja,Hiszpania,22,Passeig de Nepto
+1,Marsylia,Francja,34,Quai du Port
+2,Monako,Monako,1,Place du Casino
+3,Neapol,Wlochy,55,Corso Umberto I
+4,Rzym,Wlochy,7,Via Nazionale
+5,Aleksandria,Egipt,9,Mohammed Farid
+6,Bangkok,Tajlandia,320,Si Lorn
+7,Accra,Ghana,24,Fourth Otswe
+8,Porto,Portugalia,29,Alameda de Basillo Teles
+9,Casablanca,Maroko,41,Boulevard de La Corniche
+10,Warszawa,Polska,12,Rozana
+11,Karkow,Polska,7,Biskupia
+12,2A,Poznan,Polska,43,Stawna
 13,4,Gdansk,Polska,45,Piwna
