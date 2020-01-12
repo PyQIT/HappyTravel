@@ -18,7 +18,7 @@ Example:
 In sql script change file link to your path.
 
 ```
-INSERT INTO Reservation(id,clientID,sellerID,travelID,adultnumber,childrennumber,cateringtype,alcoholtype,entertaimenttype,ratingtype,paymenttype) SELECT * FROM CSVREAD(**'C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Rezerwacja.csv'**);
+INSERT INTO Reservation(id,clientID,sellerID,travelID,adultnumber,childrennumber,cateringtype,alcoholtype,entertaimenttype,ratingtype,paymenttype) SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Rezerwacja.csv');
 ```
 
 Example:
