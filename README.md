@@ -1,12 +1,23 @@
 # HappyTravel
 
+Travel agency website solution
+
+## First steps
+
+### Global variable
+
 Project needs global variable. You can easily add it using VM Options in InteliJ Idea.
 
-Variable example:
+Example:
+```
 -Dapp.home=C:\Users\Asus\HappyTravel\Backend\src\main\resources
+```
+
+### SQL file path
 
 In sql script change file link to your path.
 
 Example:
-
-INSERT INTO Reservation(id,clientID,sellerID,travelID,adultnumber,childrennumber,cateringtype,alcoholtype,entertaimenttype,ratingtype,paymenttype) SELECT * FROM CSVREAD([b]'C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Rezerwacja.csv'[/b]);
+```
+INSERT INTO Reservation(id,clientID,sellerID,travelID,adultnumber,childrennumber,cateringtype,alcoholtype,entertaimenttype,ratingtype,paymenttype) SELECT * FROM CSVREAD(**'C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Rezerwacja.csv'**);
+```
