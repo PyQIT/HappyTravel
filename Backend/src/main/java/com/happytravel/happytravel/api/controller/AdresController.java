@@ -25,4 +25,11 @@ public class AdresController {
         List<Adres> adres = adresService.getAdress();
         return adres.stream().map(AdresTransformer::convertToDto).collect(Collectors.toList());
     }
+
+    @GetMapping("/adress/adresyWPolsce")
+    @ResponseStatus(HttpStatus.OK)
+    public List<AdresDto> getAdressByCountry() {
+        List<Adres> adres = adresService.getAdressByCountry("Polska");
+        return adres.stream().map(AdresTransformer::convertToDto).collect(Collectors.toList());
+    }
 }

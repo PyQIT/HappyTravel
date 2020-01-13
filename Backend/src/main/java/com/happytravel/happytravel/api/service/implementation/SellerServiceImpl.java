@@ -18,5 +18,10 @@ public class SellerServiceImpl implements SellerService {
     public List<Seller> getSellers(){
         return sellerRepository.getAllSellers();
     }
-
+    @Override
+    public Long getMaxId(){return sellerRepository.getMaxId();}
+    @Override
+    public int insertSeller(Long id, Long employeeId){
+        return sellerRepository.insertSeller(id, employeeId);
+    }
 }

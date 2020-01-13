@@ -2,9 +2,9 @@ INSERT INTO user SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/ma
 INSERT INTO person SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Osoba.csv');
 INSERT INTO client SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Klient.csv');
 INSERT INTO PaymentMethod SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/MetodaPlatnosci.csv');
-INSERT INTO Adres SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Adres.csv');
-INSERT INTO Hotel SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Hotel.csv');
-INSERT INTO Travel SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Wycieczka.csv');
+INSERT INTO Adres(id,apartmentNr,city,country,houseNr,street) SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Adres.csv');
+INSERT INTO Hotel(id,hotelName,adresID) SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Hotel.csv');
+INSERT INTO Travel(id,adultCost,childCost,entertainmentCost,cateringCost,description,endDate,alcoholCost,startDate,hotelID) SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Wycieczka.csv');
 INSERT INTO Office SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Biuro.csv');
 INSERT INTO Employee SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Pracownik.csv');
 INSERT INTO Seller SELECT * FROM CSVREAD('C:/Users/Asus/HappyTravel/Backend/src/main/resources/data/Sprzedawca.csv');

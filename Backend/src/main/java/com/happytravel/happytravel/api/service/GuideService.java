@@ -7,5 +7,6 @@ import java.util.List;
 public interface GuideService {
 
     List<Guide> getGuides();
-
+    Long getMaxId();
+    int insertGuide(Long id, Long employeeId);
 }

@@ -15,8 +15,9 @@ public class GuideTravelServiceImpl implements GuideTravelService {
     private final GuideTravelRepository guideTravelRepository;
 
     @Override
-    public List<GuideTravel> getGuideTravels(){
+    public List<GuideTravel> getGuideTravels() {
         return guideTravelRepository.getAllGuideTravels();
-    }
 
+    }
 }
+
