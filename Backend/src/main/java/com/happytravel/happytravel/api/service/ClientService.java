@@ -7,5 +7,6 @@ import java.util.List;
 public interface ClientService {
 
     List<Client> getClients();
-
+    Long getMaxId();
+    int insertClient(Long id, Long personId);
 }

@@ -18,5 +18,11 @@ public class ClientServiceImpl implements ClientService {
     public List<Client> getClients(){
         return clientRepository.getAllClients();
     }
-
+    @Override
+    public Long getMaxId(){
+        return clientRepository.getMaxId();
+    }
+    public int insertClient(Long id, Long personId){
+        return clientRepository.insertClient(id, personId);
+    }
 }
