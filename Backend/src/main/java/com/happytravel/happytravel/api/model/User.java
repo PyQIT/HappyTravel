@@ -31,4 +31,13 @@ public class User{
     @NotNull(message = "User type cannot be empty.")
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
+    public String toString() {
+        return "{" +
+                "\"id\":\"" + id +
+                "\", \"login\":\"" + login  +
+                "\", \"password\":\"" + password  +
+                "\", \"userType\":\"" + userType +
+                "\"}";
+    }
 }
