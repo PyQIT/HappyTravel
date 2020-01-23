@@ -29,4 +29,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
     @Override
     public Date getFiringDateByUserID(Long userID) { return employeeRepository.getFiringDateByUserID(userID);}
+    @Override
+    public Employee getEmployee(Long eID) {return employeeRepository.getEmployee(eID);}
 }

@@ -24,4 +24,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     Long getMaxId();
     @Query(value = "select distinct Employee.firingDate from Employee, User, Person where Employee.personID = Person.id and :userID = Person.userID", nativeQuery=true)
     Date getFiringDateByUserID(@Param("userID") Long userID);
+    @Query(value = "select * from Employee where id = :eID", nativeQuery = true)
+    Employee getEmployee(@Param("eID") Long eID);
 }

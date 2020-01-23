@@ -42,4 +42,16 @@ public class Employee{
     @NotNull(message = "Position cannot be empty.")
     @Enumerated(EnumType.STRING)
     private Position position;
+
+    public String toString() {
+        return "{" +
+                "\"id\":\"" + id +
+                "\", \"personID\":\"" + personID  +
+                "\", \"officeID\":\"" + officeID  +
+                "\", \"salary\":\"" + salary +
+                "\", \"hiringDate\":\"" + hiringDate +
+                "\", \"firingDate\":\"" + firingDate +
+                "\", \"position\":\"" + position +
+                "\"}";
+    }
 }

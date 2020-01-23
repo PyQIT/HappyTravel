@@ -11,5 +11,6 @@ public interface EmployeeService {
     int insertEmployee(Long id, Date firingdate, Date hiringdate, String position, Long salary, Long officeid, Long personid);
     Long getMaxId();
     Date getFiringDateByUserID(Long userID);
+    Employee getEmployee(Long eID);
 
 }
