@@ -40,18 +40,13 @@ public class UserController {
             return "{\"result\":" + result + ", \"user\": null}";
         }
         if(!userService.getUserType(login).equals("Klient")){
-            //return "Sprawdzam date";
             if(employeeService.getFiringDateByUserID(userService.getUserIdByLogin(login))!=null){
                 result = -1;
-                return "Zwolniony";
-                //return "{\"result\":" + result + ", \"user\": null}";
+                return "{\"result\":" + result + ", \"user\": null}";
             }
         }
         result = 0;
         return "{\"result\":" + result + ", \"user\":" + user.toString() + "}";
-        //result = -1;
-        //return "aaa";
-        //return "{\"result\":" + result + ", \"user\": null}";
     }
 
     @GetMapping("/signup")

@@ -18,5 +18,8 @@ public class ReservationServiceImpl implements ReservationService {
     public List<Reservation> getReservations(){
         return reservationRepository.getAllReservations();
     }
-
+    @Override
+    public List<Reservation> getClientReservations(Long clientID){
+        return reservationRepository.getClientReservations(clientID);
+    }
 }

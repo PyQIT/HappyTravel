@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Date;
 
 @RequiredArgsConstructor
 @Service
@@ -18,5 +19,6 @@ public class TravelServiceImpl implements TravelService {
     public List<Travel> getTravel(){
         return travelRepository.getAllTravel();
     }
+    public List<Travel> getFutureTravels(Date date){ return travelRepository.getFutureTravels(date);}
 
 }
