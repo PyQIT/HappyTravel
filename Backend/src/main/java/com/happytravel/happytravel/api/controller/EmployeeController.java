@@ -26,8 +26,8 @@ public class EmployeeController {
         return employee.stream().map(EmployeeTransformer::convertToDto).collect(Collectors.toList());
     }
     @GetMapping("/getEmployee")
-    public String getEmployee(@RequestParam Long id){
+    public EmployeeDto getEmployee(@RequestParam Long id){
         Employee employee = employeeService.getEmployee(id);
-        return employee.toString();
+        return EmployeeTransformer.convertToDto(employee);
     }
 }
