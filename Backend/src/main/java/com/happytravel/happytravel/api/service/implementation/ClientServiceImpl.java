@@ -25,4 +25,7 @@ public class ClientServiceImpl implements ClientService {
     public int insertClient(Long id, Long personId){
         return clientRepository.insertClient(id, personId);
     }
+    public Long getClientIdByUserId(Long userID){
+        return clientRepository.getClientIdByUserId(userID);
+    }
 }

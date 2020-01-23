@@ -7,5 +7,5 @@ import java.util.List;
 public interface ReservationService {
 
     List<Reservation> getReservations();
-
+    List<Reservation> getClientReservations (Long clientID);
 }

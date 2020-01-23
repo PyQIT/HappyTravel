@@ -8,5 +8,5 @@ import lombok.Data;
 @Data
 public class OfficeDto {
 	private Long id;
-	private Adres adressID;
+	private Adres adresID;
 }

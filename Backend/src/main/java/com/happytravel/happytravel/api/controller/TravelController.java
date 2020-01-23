@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Date;
 
 @CrossOrigin
 @RestController
@@ -24,5 +25,10 @@ public class TravelController {
     public List<TravelDto> getTravel() {
         List<Travel> travel = travelService.getTravel();
         return travel.stream().map(TravelTransformer::convertToDto).collect(Collectors.toList());
+    }
+    @GetMapping("/futureTravels")
+    public List<TravelDto> getFutureTravels(){
+        List<Travel> travels = travelService.getFutureTravels(new Date());
+        return travels.stream().map(TravelTransformer::convertToDto).collect(Collectors.toList());
     }
 }
