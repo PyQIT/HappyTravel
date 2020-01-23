@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Date;
 
 @RequiredArgsConstructor
 @Service
@@ -24,4 +25,12 @@ public class ManagerServiceImpl implements ManagerService {
     public int insertManager(Long id, Long employeeId){ return managerRepository.insertManager(id, employeeId);}
     @Override
     public Manager getManagerByID(Long mID){ return managerRepository.getManagerByID(mID);}
+    @Override
+    public int fireEmployee(Long eID, Date date){
+        return managerRepository.fireEmployee(eID, date);
+    }
+    @Override
+    public Long getManagerID(Long user_ID){
+        return managerRepository.getManagerID(user_ID);
+    }
 }

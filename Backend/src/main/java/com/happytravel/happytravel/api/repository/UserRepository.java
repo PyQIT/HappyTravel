@@ -30,7 +30,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
     @Query(value = "insert into User (id, login, password, usertype) values(:id, :login, :pass, :stanowisko)", nativeQuery = true)
     int signUp(@Param("id") Long id, @Param("login") String login, @Param("pass") String pass, @Param("stanowisko") String stanowisko);
-    @Query(value = "SELECT Manager.id from Manager, Employee , Person  WHERE Employee.id = Manager.EmployeeID AND Person.id = Employee.personID AND Person.userID = :user_ID", nativeQuery = true)
-    Long getManagerID(@Param("user_ID") Long user_ID);
+    @Query(value = "select usertype from user where login = :login", nativeQuery = true)
+    String getUserType(@Param("login") String login);
+    @Query(value = "select id from user where login = :login", nativeQuery=true)
+    Long getUserIdByLogin(@Param("login") String login);
 
 }

@@ -11,6 +11,7 @@ public interface UserService {
     User checkLogins(String login);
     Long getMaxId();
     int signUp(Long id, String login, String pass, String stanowisko);
-    Long getManagerID(Long user_ID);
     User getUserByID(Long userID);
+    String getUserType(String login);
+    Long getUserIdByLogin(String login);
 }

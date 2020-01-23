@@ -29,11 +29,14 @@ public class UserServiceImpl implements UserService {
     public int signUp(Long id, String login, String pass, String stanowisko) {
         return userRepository.signUp(id, login, pass, stanowisko);
     }
-    @Override
-    public Long getManagerID(Long user_ID){
-        return userRepository.getManagerID(user_ID);
-    }
+
     public User getUserByID(Long userID) {
         return userRepository.getUserByID(userID);
+    }
+    public String getUserType(String login){
+        return userRepository.getUserType(login);
+    }
+    public Long getUserIdByLogin(String login){
+        return userRepository.getUserIdByLogin(login);
     }
 }
