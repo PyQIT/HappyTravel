@@ -11,7 +11,7 @@ class Employees extends React.Component {
             loading: true,
             showCurrent: false,
             showFired: false,
-            action: 'none'
+            action: 0,
         }
         this.changeCurrent = this.changeCurrent.bind(this);
         this.changeFired = this.changeFired.bind(this);
@@ -50,7 +50,7 @@ class Employees extends React.Component {
             this.setState((prevState, props) => ({
                 showCurrent: prevState.showCurrent,
                 showFired: prevState.showFired,
-                action: 'none'
+                action: 0,
             }));
             return;
         }
@@ -66,7 +66,7 @@ class Employees extends React.Component {
             return null;
         if(this.state.loading)
             return ("Loading employees...");
-        const empList = this.state.empData.map(emp =>(emp.firingDate==null)?<EmployeeOnList key={emp.id} emp={emp} loggedUser={this.props.loggedUser} action={this.state.action} refresh = {this.fetchEmployeeList}/>:null);
+        const empList = this.state.empData.map(emp =>(emp.firingDate==null)?<EmployeeOnList key={emp.id} emp={emp} loggedUser={this.props.loggedUser} action={this.state.action} refresh = {this.fetchEmployeeList} switch={this.props.switch}/>:null);
         return(
             <div>
                 <table className='niceTable'>
@@ -119,8 +119,8 @@ class Employees extends React.Component {
             <p>Employee Management</p>
             <div>
                 <button className='blueButton' onMouseDown={()=> this.props.switch(<AddEmployee switch={this.props.switch} loggedUser={this.props.loggedUser}/>)}>Add</button>
-                <button className='blueButton' onMouseDown={()=> this.setAction('Modify')}>Modify</button>
-                <button className='blueButton' onMouseDown={()=> this.setAction('Fire')}>Fire</button>
+                <button className='blueButton' onMouseDown={()=> this.setAction(1)}>Modify</button>
+                <button className='blueButton' onMouseDown={()=> this.setAction(2)}>Fire</button>
 
             </div>
             <p onMouseDown={this.changeCurrent}>Current Employees</p>

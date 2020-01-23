@@ -1,4 +1,5 @@
 import React from "react";
+import EditEmployee from "./EditEmployee";
 
 class EmployeeOnList extends React.Component{
     constructor(props) {
@@ -14,14 +15,20 @@ class EmployeeOnList extends React.Component{
     }
 
     fire(u, id){
+        console.log("Fire");
         fetch("http://localhost:8080/fireEmployee?loggedUser="+u+"&employeeID="+id)
             .then(response => response.json())
         this.props.refresh();
     }
 
-    takeAction(){
-        console.out('Action taken');
-        if (this.state.action == 'fire') this.fire();
+    modify(u, id){
+        this.props.switch(<EditEmployee emp={this.props.emp} switch={this.props.switch} loggedUser={u}/>)
+    }
+
+    takeAction(logedUser, id){
+        console.log("Action Taken: " + this.props.action)
+        if (this.props.action === 2) {this.fire(logedUser, id);}
+        if (this.props.action === 1) {this.modify(logedUser, id);}
         this.props.refresh();
     }
 
@@ -34,7 +41,7 @@ class EmployeeOnList extends React.Component{
                 <td>{this.props.emp.position}</td>
                 <td>{this.props.emp.officeID.id}</td>
                 <td>{(new Date(this.props.emp.hiringDate)).toLocaleDateString()}</td>
-                {(this.props.action !='none')?<td onMouseDown={()=>this.fire(this.props.loggedUser, this.props.emp.id)} className='actionCell'>{this.props.action}</td>:null}
+                {(this.props.action !=0)?<td onMouseDown={()=>this.takeAction(this.props.loggedUser, this.props.emp.id)} className='actionCell'>{(this.props.action==1)?"Modify":"Fire"}</td>:null}
             </tr>
         )
     }

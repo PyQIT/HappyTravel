@@ -10,6 +10,8 @@ class NavMenu extends React.Component{
 
     }
 
+
+
     getMenu(){
         console.log(this.props.type)
         if(this.props.type == null){
