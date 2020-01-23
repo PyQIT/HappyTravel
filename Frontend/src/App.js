@@ -5,8 +5,12 @@ import './App.css'
 import MainPage from './Pages/MainPage.js'
 import SignUp from './Authorization/SignUp.js'
 import SignIn from './Authorization/SignIn.js'
+import NavMenu from "./Navigation/NavMenu";
+import Employees from "./Pages/Manager/Employees";
 
 import baner from './baner.png'
+import EmployeeOnList from "./Pages/Manager/EmployeeOnList";
+import AddEmployee from "./Pages/Manager/AddEmployee";
 
 class App extends React.Component {
 
@@ -30,15 +34,12 @@ class App extends React.Component {
     componentDidMount() {
         console.log("App componentDidMount()");
         this.setState((prevState, props) => ({
-            currentScreen: <MainPage />
+            currentScreen: <AddEmployee />
         }));
-
-
     }
 
 
     changeScreen(screen){
-        console.log("aaa!");
         this.setState((prevState, props) => ({
             currentScreen: screen
         }));
@@ -75,9 +76,10 @@ class App extends React.Component {
         if(this.state.signedIn){
             loginWindow = (
                 <div className='signInScreen'>
-                    Signed in as {this.state.user.login}
-                    <button className='blueButton' onMouseDown={this.signOut}>Sign Out</button>
+                    <p>Signed in as {this.state.user.login}</p>
+                    <button className='blueButton' onMouseDown={this.signOut}>Sign Out</button><hr/>
                 </div>
+
             )
         }
         else{
@@ -101,6 +103,7 @@ class App extends React.Component {
               <div>
                   <div className = 'MENU'>
                       {loginWindow}
+                      <NavMenu type={this.state.user.userType} switch={this.changeScreen} loggedUser={(this.state.user?this.state.user.id:null)}/>
                   </div>
                   <div className = 'TRESC'>
                       {this.state.currentScreen}
