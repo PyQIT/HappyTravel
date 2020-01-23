@@ -81,7 +81,7 @@ public class ManagerController {
             }
             User user = userService.getUserByID(userid);
             if(user == null) return "-9";
-            return "{\"user\":" + user.toString() + "}";
+            return user.toString();
         }
     }
     @GetMapping("/isManager")
@@ -89,4 +89,29 @@ public class ManagerController {
         if(managerService.getManagerID(user_ID)==null) return false;
         else return true;
     }
+    @GetMapping("/updateSalary")
+    public int updateSalary(@RequestParam Long loggedUser, @RequestParam Long salary, @RequestParam Long employeeID){
+        if(!isManager(loggedUser)) return -1;
+        else {
+            managerService.updateSalary(salary, employeeID);
+            return 0;
+        }
+    }
+    @GetMapping("/updateOffice")
+    public int updateOffice(@RequestParam Long loggedUser, @RequestParam Long officeID, @RequestParam Long employeeID){
+        if(!isManager(loggedUser)) return -1;
+        else {
+            managerService.updateOffice(officeID, employeeID);
+            return 0;
+        }
+    }
+    @GetMapping("/updatePosition")
+    public int updatePosition(@RequestParam Long loggedUser, @RequestParam String position, @RequestParam Long employeeID){
+        if(!isManager(loggedUser)) return -1;
+        else {
+            managerService.updatePosition(position, employeeID);
+            return 0;
+        }
+    }
+
 }

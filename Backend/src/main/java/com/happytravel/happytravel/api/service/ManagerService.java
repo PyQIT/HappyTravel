@@ -13,4 +13,7 @@ public interface ManagerService {
     Manager getManagerByID(Long mID);
     int fireEmployee(Long eID, Date date);
     Long getManagerID(Long user_ID);
+    int updateSalary(Long salary, Long eID);
+    int updateOffice(Long oID, Long eID);
+    int updatePosition(String position, Long eID);
 }

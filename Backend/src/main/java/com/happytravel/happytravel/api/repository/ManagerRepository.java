@@ -30,5 +30,16 @@ public interface ManagerRepository extends JpaRepository<Manager, Long> {
     int fireEmployee(@Param("eID") Long eID, @Param("date") Date date);
     @Query(value = "SELECT Manager.id from Manager, Employee , Person  WHERE Employee.id = Manager.EmployeeID AND Person.id = Employee.personID AND Person.userID = :user_ID", nativeQuery = true)
     Long getManagerID(@Param("user_ID") Long user_ID);
-
+    @Modifying
+    @Transactional
+    @Query(value = "update Employee set salary = :salary where id = :eID", nativeQuery = true)
+    int updateSalary(@Param("salary") Long salary, @Param("eID") Long eID);
+    @Modifying
+    @Transactional
+    @Query(value = "update Employee set officeID = :oID where id = :eID", nativeQuery = true)
+    int updateOffice(@Param("oID") Long oID, @Param("eID") Long eID);
+    @Modifying
+    @Transactional
+    @Query(value = "update Employee set position = :position where id = :eID", nativeQuery = true)
+    int updateOffice(@Param("position") String position, @Param("eID") Long eID);
 }

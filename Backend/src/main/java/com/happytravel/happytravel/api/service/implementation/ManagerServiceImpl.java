@@ -33,4 +33,10 @@ public class ManagerServiceImpl implements ManagerService {
     public Long getManagerID(Long user_ID){
         return managerRepository.getManagerID(user_ID);
     }
+    @Override
+    public int updateSalary(Long salary, Long eID) { return managerRepository.updateSalary(salary, eID);}
+    @Override
+    public int updateOffice(Long oID, Long eID) { return managerRepository.updateOffice(oID, eID);}
+    @Override
+    public int updatePosition(String position, Long eID) { return managerRepository.updateOffice(position, eID);}
 }
