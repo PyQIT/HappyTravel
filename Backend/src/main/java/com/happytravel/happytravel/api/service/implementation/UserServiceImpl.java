@@ -1,6 +1,7 @@
 package com.happytravel.happytravel.api.service.implementation;
 
 import com.happytravel.happytravel.api.model.User;
+import com.happytravel.happytravel.api.model.Manager;
 import com.happytravel.happytravel.api.repository.UserRepository;
 import com.happytravel.happytravel.api.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -27,5 +28,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public int signUp(Long id, String login, String pass, String stanowisko) {
         return userRepository.signUp(id, login, pass, stanowisko);
+    }
+    @Override
+    public Long getManagerID(Long user_ID){
+        return userRepository.getManagerID(user_ID);
+    }
+    public User getUserByID(Long userID) {
+        return userRepository.getUserByID(userID);
     }
 }

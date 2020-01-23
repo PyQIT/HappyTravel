@@ -1,6 +1,9 @@
 package com.happytravel.happytravel.api.repository;
 
 import com.happytravel.happytravel.api.model.User;
+import com.happytravel.happytravel.api.model.Manager;
+import com.happytravel.happytravel.api.model.Person;
+import com.happytravel.happytravel.api.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,6 +18,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "select * from user", nativeQuery = true)
     List<User> getAllUsers();
+    @Query(value = "select * from user where id = :userID", nativeQuery = true)
+    User getUserByID(@Param("userID") Long userID);
     @Query(value = "select * from user where login = :login and password = :pass", nativeQuery = true)
     User logIn(@Param("login") String login, @Param("pass") String pass);
     @Query(value = "select * from user where login = :login", nativeQuery = true)
@@ -25,5 +30,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
     @Query(value = "insert into User (id, login, password, usertype) values(:id, :login, :pass, :stanowisko)", nativeQuery = true)
     int signUp(@Param("id") Long id, @Param("login") String login, @Param("pass") String pass, @Param("stanowisko") String stanowisko);
+    @Query(value = "SELECT Manager.id from Manager, Employee , Person  WHERE Employee.id = Manager.EmployeeID AND Person.id = Employee.personID AND Person.userID = :user_ID", nativeQuery = true)
+    Long getManagerID(@Param("user_ID") Long user_ID);
 
 }

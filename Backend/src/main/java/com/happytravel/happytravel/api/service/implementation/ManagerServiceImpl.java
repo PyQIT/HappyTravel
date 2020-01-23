@@ -22,5 +22,6 @@ public class ManagerServiceImpl implements ManagerService {
     public Long getMaxId(){return managerRepository.getMaxId();}
     @Override
     public int insertManager(Long id, Long employeeId){ return managerRepository.insertManager(id, employeeId);}
-
+    @Override
+    public Manager getManagerByID(Long mID){ return managerRepository.getManagerByID(mID);}
 }

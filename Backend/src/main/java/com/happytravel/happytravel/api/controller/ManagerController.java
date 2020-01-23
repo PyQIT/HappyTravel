@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @RequestMapping()
 public class ManagerController {
-
     private final ManagerService managerService;
 
     @GetMapping("/managers")

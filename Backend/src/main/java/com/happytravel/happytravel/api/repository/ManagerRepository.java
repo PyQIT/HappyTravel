@@ -21,4 +21,7 @@ public interface ManagerRepository extends JpaRepository<Manager, Long> {
     @Transactional
     @Query(value = "insert into manager(id, employeeId) values(:id, :employeeId)", nativeQuery = true)
     int insertManager(@Param("id") Long id, @Param("employeeId") Long employeeId);
+    @Query(value = "Select * from Manager where id = :mID", nativeQuery = true)
+    Manager getManagerByID(@Param("mID") Long mID);
+
 }
