@@ -21,7 +21,11 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Long getMaxId(){return personRepository.getMaxId();}
     public int insertPerson(Long id, String email, String name, Long pesel, String phonenumber, String surname, Long userid){
-         return personRepository.insertPerson(id, email, name, pesel, phonenumber, surname, userid);
+        return personRepository.insertPerson(id, email, name, pesel, phonenumber, surname, userid);
+    }
+    @Override
+    public Person getPersonByEmail(String email) {
+        return personRepository.getPersonByEmail(email);
     }
 
 }

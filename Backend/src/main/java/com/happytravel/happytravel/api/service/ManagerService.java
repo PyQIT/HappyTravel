@@ -9,4 +9,5 @@ public interface ManagerService {
     List<Manager> getManagers();
     Long getMaxId();
     int insertManager(Long id, Long employeeId);
+    Manager getManagerByID(Long mID);
 }

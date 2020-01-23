@@ -1,0 +1,82 @@
+html, body {
+    background-color: burlywood;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.top {
+    width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.NAGLOWEK {
+    width: 100%;
+    background-color: darkslateblue;
+}
+
+.MENU {
+    width: 200px;
+    float: left;
+    overflow: hidden;
+    background-color: orange;
+    min-height: 1000px;
+}
+
+.TRESC {
+    width: 70%;
+    float: left;
+
+}
+
+.STOPKA {
+    clear: both;
+    width: 100%;
+    background-color:  darkslateblue;
+}
+
+.tripElement{
+    background-color: cornflowerblue;
+    border: dashed crimson;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.signInScreen{
+    width: 100%;
+    overflow: hidden;
+    background-color: orange;
+    border: darkslateblue 2px;
+    border-style: ridge;
+}
+
+.signUpScreen{
+    width: 50%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    background-color: orange;
+    border: darkslateblue 2px;
+    border-style: ridge;
+}
+
+.blueButton {
+    box-shadow:inset 0px 0px 15px 3px #23395e;
+    background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+    background-color:#2e466e;
+    border-radius:15px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:10px 50px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #263666;
+}
+

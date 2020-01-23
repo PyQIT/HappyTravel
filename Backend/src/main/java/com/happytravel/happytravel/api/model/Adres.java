@@ -18,22 +18,22 @@ public class Adres{
     @Column(name = "id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
-	@Column(name = "country", nullable = false)
+
+    @Column(name = "country", nullable = false)
     @NotNull(message = "Country cannot be empty.")
     private String country;
-	
-	@Column(name = "city", nullable = false)
+
+    @Column(name = "city", nullable = false)
     @NotNull(message = "City cannot be empty.")
     private String city;
-	
-	@Column(name = "street", nullable = true)    
+
+    @Column(name = "street", nullable = true)
     private String street;
-	
-	@Column(name = "houseNr", nullable = false) 
-	@NotNull(message = "City cannot be empty.")	
+
+    @Column(name = "houseNr", nullable = false)
+    @NotNull(message = "City cannot be empty.")
     private String houseNr;
-	
-	@Column(name = "apartmentNr", nullable = true)    
+
+    @Column(name = "apartmentNr", nullable = true)
     private String apartmentNr;
 }
