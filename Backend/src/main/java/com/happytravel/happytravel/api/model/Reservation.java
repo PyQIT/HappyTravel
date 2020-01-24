@@ -54,7 +54,7 @@ public class Reservation{
     @Enumerated(EnumType.STRING)
     private EntertaimentType entertaimentType;
 
-    @Column(name = "ratingtype")
+    @Column(name = "ratingtype", nullable = false)
     @Enumerated(EnumType.STRING)
     private RatingType ratingType;
 

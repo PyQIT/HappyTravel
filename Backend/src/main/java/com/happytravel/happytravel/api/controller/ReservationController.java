@@ -29,24 +29,18 @@ public class ReservationController {
         return reservation.stream().map(ReservationTransformer::convertToDto).collect(Collectors.toList());
     }
     @GetMapping("/makeReservation")
-    public int makeReservation(@RequestParam Long adultNumber, @RequestParam boolean alcoholtype, @RequestParam boolean cateringtype, @RequestParam Long childrennumber, @RequestParam boolean entertainmenttype, @RequestParam boolean paymenttype, @RequestParam boolean ratingtype, @RequestParam Long clientid, @RequestParam Long travelid) {
+    public int makeReservation(@RequestParam Long adultNumber, @RequestParam boolean alcoholtype, @RequestParam boolean cateringtype, @RequestParam Long childrennumber, @RequestParam boolean entertainmenttype, @RequestParam Long clientid, @RequestParam Long travelid) {
         Random rand = new Random();
         AlcoholType aType = AlcoholType.NONE;
         CateringType cType = CateringType.NONE;
         EntertaimentType eType = EntertaimentType.NONE;
-        PaymentType pType = PaymentType.NONE;
-        RatingType rType = RatingType.NONE;
         if(alcoholtype)
             aType = AlcoholType.values()[rand.nextInt(AlcoholType.values().length-1)];
         if(cateringtype)
             cType = CateringType.values()[rand.nextInt(AlcoholType.values().length-1)];
         if(entertainmenttype)
             eType = EntertaimentType.values()[rand.nextInt(AlcoholType.values().length-1)];
-        if(paymenttype)
-            pType = PaymentType.values()[rand.nextInt(AlcoholType.values().length-1)];
-        if(ratingtype)
-            rType = RatingType.values()[rand.nextInt(AlcoholType.values().length-1)];
-        return reservationService.makeReservation(reservationService.getMaxId()+1, adultNumber, aType, cType, childrennumber, eType, pType, rType, clientid, null, travelid);
+        return reservationService.makeReservation(reservationService.getMaxId()+1, adultNumber, aType, cType, childrennumber, eType, null, null, clientid, null, travelid);
     }
     @GetMapping("/cancelReservation")
     public int cancelReservation(@RequestParam Long reservationID, @RequestParam Long clientID){
