@@ -112,7 +112,7 @@ class App extends React.Component {
                       <NavMenu type={this.state.user.userType} switch={this.changeScreen} loggedUser={(this.state.user?this.state.user.id:null)}/>
                   </div>
                   <div className = 'TRESC'>
-                          {trips}
+                          {this.state.currentScreen}
                   </div>
               </div>
               <div className = 'STOPKA'>
