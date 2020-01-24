@@ -16,4 +16,6 @@ public interface UserService {
     Long getUserIdByLogin(String login);
     int updateType(String type, Long employeeID);
     Long getUserIDByEmployeeID(Long eID);
+    Long checkPassword(Long uID, String pass);
+    int changePass(String pass, Long uID);
 }

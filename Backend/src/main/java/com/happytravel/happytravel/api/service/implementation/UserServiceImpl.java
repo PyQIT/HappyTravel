@@ -45,4 +45,10 @@ public class UserServiceImpl implements UserService {
     public Long getUserIDByEmployeeID(Long eID){
         return userRepository.getUserIDByEmployeeID(eID);
     }
+    public Long checkPassword(Long uID, String pass){
+        return userRepository.checkPassword(uID, pass);
+    }
+    public int changePass(String pass, Long uID){
+        return userRepository.changePass(pass, uID);
+    }
 }

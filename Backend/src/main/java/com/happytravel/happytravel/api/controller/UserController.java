@@ -67,5 +67,9 @@ public class UserController {
             return 0;
         }
     }
-
+    @GetMapping("/changePass")
+    public int changePass(@RequestParam String oldPass, @RequestParam String newPass, @RequestParam Long loggedUser){
+        if(userService.checkPassword(loggedUser, oldPass) == null) return -1;
+        else return userService.changePass(newPass, loggedUser);
+    }
 }
