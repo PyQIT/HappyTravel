@@ -5,8 +5,9 @@ import com.happytravel.happytravel.api.repository.ReservationRepository;
 import com.happytravel.happytravel.api.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
+import com.happytravel.happytravel.api.model.enums.*;
 import java.util.List;
+import java.util.Date;
 
 @RequiredArgsConstructor
 @Service
@@ -21,5 +22,17 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<Reservation> getClientReservations(Long clientID){
         return reservationRepository.getClientReservations(clientID);
+    }
+    public int makeReservation(Long id, Long adultNumber, AlcoholType alcoholtype, CateringType cateringtype, Long childrennumber, EntertaimentType entertainmenttype, PaymentType paymenttype, RatingType ratingtype, Long clientid, Long sellerid, Long travelid){
+        return reservationRepository.makeReservation(id, adultNumber, alcoholtype, cateringtype, childrennumber, entertainmenttype, paymenttype, ratingtype, clientid, sellerid, travelid);
+    }
+    public Long getMaxId(){
+        return reservationRepository.getMaxId();
+    }
+    public Long checkIfTravelStarted(Long rID, Date date){
+        return reservationRepository.checkIfTravelStarted(rID, date);
+    }
+    public int cancelReservation(Long rID, Long cID){
+        return reservationRepository.cancelReservation(rID, cID);
     }
 }

@@ -24,7 +24,7 @@ public class Reservation{
 	private Client clientID;
 
     @ManyToOne
-	@JoinColumn(name = "sellerID", referencedColumnName = "id")
+	@JoinColumn(name = "sellerID", referencedColumnName = "id", nullable = true)
 	private Seller sellerID;
 
     @ManyToOne
