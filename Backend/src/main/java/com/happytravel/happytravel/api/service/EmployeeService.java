@@ -12,5 +12,6 @@ public interface EmployeeService {
     Long getMaxId();
     Date getFiringDateByUserID(Long userID);
     Employee getEmployee(Long eID);
+    Long countEmployeesOnPosition(String position, Long oID);
 
 }
