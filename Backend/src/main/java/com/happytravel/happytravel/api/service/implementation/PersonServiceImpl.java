@@ -27,5 +27,8 @@ public class PersonServiceImpl implements PersonService {
     public Person getPersonByEmail(String email) {
         return personRepository.getPersonByEmail(email);
     }
-
+    @Override
+    public Person getPersonByUserID(Long uID){
+        return personRepository.getPersonByUserID(uID);
+    }
 }

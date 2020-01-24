@@ -25,4 +25,8 @@ public class PersonController {
         List<Person> person = personService.getPersons();
         return person.stream().map(PersonTransformer::convertToDto).collect(Collectors.toList());
     }
+    @GetMapping("/getPersonByUserID")
+    public PersonDto getPersonByUserID(@RequestParam Long userID){
+        return PersonTransformer.convertToDto(personService.getPersonByUserID(userID));
+    }
 }
