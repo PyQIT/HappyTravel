@@ -11,6 +11,8 @@ import Employees from "./Pages/Manager/Employees";
 import baner from './baner.png'
 import EmployeeOnList from "./Pages/Manager/EmployeeOnList";
 import AddEmployee from "./Pages/Manager/AddEmployee";
+import NewReservation from "./Pages/Customer/NewReservation";
+import Trip from "./Pages/Trip";
 
 class App extends React.Component {
 
@@ -26,15 +28,18 @@ class App extends React.Component {
 
         this.state = {
             signedIn: false,
-            user: {}
-
+            user: {},
+            dbdata: [],
+            trip: {},
+            trips: []
         }
 
     }
     componentDidMount() {
-        console.log("App componentDidMount()");
+
+
         this.setState((prevState, props) => ({
-            currentScreen: <AddEmployee />
+            currentScreen: <MainPage/>
         }));
     }
 
@@ -73,6 +78,7 @@ class App extends React.Component {
 
     render(){
         let loginWindow
+        const trips = this.state.dbdata.map(trip => <NewReservation key={trip.id} trip={trip}/>)
         if(this.state.signedIn){
             loginWindow = (
                 <div className='signInScreen'>
@@ -106,7 +112,7 @@ class App extends React.Component {
                       <NavMenu type={this.state.user.userType} switch={this.changeScreen} loggedUser={(this.state.user?this.state.user.id:null)}/>
                   </div>
                   <div className = 'TRESC'>
-                      {this.state.currentScreen}
+                          {trips}
                   </div>
               </div>
               <div className = 'STOPKA'>

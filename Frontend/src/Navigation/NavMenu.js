@@ -1,7 +1,7 @@
 import React from "react";
 
 import Employees from "../Pages/Manager/Employees";
-import MainPage from "../Pages/MainPage";
+import Offices from "../Pages/Manager/Offices";
 
 class NavMenu extends React.Component{
 
@@ -38,7 +38,7 @@ class NavMenu extends React.Component{
             return(
                 <div>
                     <button className='panelSpecialButton' onMouseDown={()=> this.props.switch(<Employees loggedUser={this.props.loggedUser} switch={this.props.switch}/>)}>Pracownicy</button>
-                    <button className='panelSpecialButton'>Biura</button><hr/>
+                    <button className='panelSpecialButton' onMouseDown={()=> this.props.switch(<Offices loggedUser={this.props.loggedUser} switch={this.props.switch}/>)}>Biura</button><hr/>
                     <button className='panelButton'>Browse</button>
                     <button className='panelButton'>Account</button>
                     <button className='panelButton'>About us</button>
