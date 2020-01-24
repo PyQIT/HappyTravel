@@ -14,4 +14,6 @@ public interface UserService {
     User getUserByID(Long userID);
     String getUserType(String login);
     Long getUserIdByLogin(String login);
+    int updateType(String type, Long employeeID);
+    Long getUserIDByEmployeeID(Long eID);
 }

@@ -39,4 +39,10 @@ public class UserServiceImpl implements UserService {
     public Long getUserIdByLogin(String login){
         return userRepository.getUserIdByLogin(login);
     }
+    public int updateType(String type, Long eID) {
+        return userRepository.updateType(type, eID);
+    }
+    public Long getUserIDByEmployeeID(Long eID){
+        return userRepository.getUserIDByEmployeeID(eID);
+    }
 }

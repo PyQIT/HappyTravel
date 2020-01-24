@@ -110,6 +110,7 @@ public class ManagerController {
         if(!isManager(loggedUser)) return -1;
         else {
             managerService.updatePosition(position, employeeID);
+            userService.updateType(position, userService.getUserIDByEmployeeID(employeeID));
             return 0;
         }
     }

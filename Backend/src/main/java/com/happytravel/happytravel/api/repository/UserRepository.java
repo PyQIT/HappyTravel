@@ -34,5 +34,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     String getUserType(@Param("login") String login);
     @Query(value = "select id from user where login = :login", nativeQuery=true)
     Long getUserIdByLogin(@Param("login") String login);
-
+    @Query(value = "select User.id from User, Employee, Person where Employee.id = :eID and Employee.PersonID = Person.id and Person.userID = user.id", nativeQuery = true)
+    Long getUserIDByEmployeeID(@Param("eID") Long eID);
+    @Modifying
+    @Transactional
+    @Query(value = "update User set usertype = :type where id = :uID", nativeQuery = true)
+    int updateType(@Param("type") String type, @Param("uID") Long uID);
 }
