@@ -39,8 +39,8 @@ class TripList extends React.Component {
 
          const trips = this.state.dbdata.map(trip => <Trip key={trip.id} trip={trip}/>)
 
-        console.log(trips)
-        console.log(this.state.dbdata)
+        console.log(trips);
+        console.log(this.state.dbdata);
         return(
             <div>
                 {text}
