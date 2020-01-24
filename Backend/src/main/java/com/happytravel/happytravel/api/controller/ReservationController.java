@@ -40,7 +40,7 @@ public class ReservationController {
             cType = CateringType.values()[rand.nextInt(AlcoholType.values().length-1)];
         if(entertainmenttype)
             eType = EntertaimentType.values()[rand.nextInt(AlcoholType.values().length-1)];
-        return reservationService.makeReservation(reservationService.getMaxId()+1, adultNumber, aType, cType, childrennumber, eType, null, null, clientid, null, travelid);
+        return reservationService.makeReservation(reservationService.getMaxId()+1, adultNumber, aType.name(), cType.name(), childrennumber, eType.name(), null, null, clientid, null, travelid);
     }
     @GetMapping("/cancelReservation")
     public int cancelReservation(@RequestParam Long reservationID, @RequestParam Long clientID){

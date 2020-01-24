@@ -54,12 +54,11 @@ public class Reservation{
     @Enumerated(EnumType.STRING)
     private EntertaimentType entertaimentType;
 
-    @Column(name = "ratingtype", nullable = false)
+    @Column(name = "ratingtype", nullable = true)
     @Enumerated(EnumType.STRING)
     private RatingType ratingType;
 
-    @Column(name = "paymenttype", nullable = false)
-    @NotNull(message = "Payment type cannot be empty.")
+    @Column(name = "paymenttype", nullable = true)
     @Enumerated(EnumType.STRING)
     private PaymentType paymentType;
 }

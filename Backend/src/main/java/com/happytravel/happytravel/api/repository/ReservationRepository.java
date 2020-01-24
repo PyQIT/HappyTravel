@@ -20,8 +20,8 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     List<Reservation> getClientReservations(@Param("clientID") Long clientID);
     @Modifying
     @Transactional
-    @Query(value = "insert into reservation (id, adultnumber, alhocoltype, cateringtype, childrennumber, entertainmenttype, paymenttype, ratingtype, clientid, sellerid, travelid) values(:id, :adultnumber, :alhocoltype, :cateringtype, :childrennumber, :entertainmenttype, :paymenttype, :ratingtype, :clientid, :sellerid, :travelid)", nativeQuery = true)
-    int makeReservation(@Param("id") Long id, @Param("adultnumber") Long adultNumber, @Param("alhocoltype") AlcoholType alcoholtype, @Param("cateringtype") CateringType cateringtype, @Param("childrennumber") Long childrennumber, @Param("entertainmenttype") EntertaimentType entertainmenttype, @Param("paymenttype") PaymentType paymenttype, @Param("ratingtype") RatingType ratingtype, @Param("clientid") Long clientid, @Param("sellerid") Long sellerid, @Param("travelid") Long travelid);
+    @Query(value = "insert into reservation(id, adultnumber, alcoholtype, cateringtype, childrennumber, entertaimenttype, paymenttype, ratingtype, clientid, sellerid, travelid) values(:id, :adultnumber, :alhocoltype, :cateringtype, :childrennumber, :entertainmenttype, :paymenttype, :ratingtype, :clientid, :sellerid, :travelid)", nativeQuery = true)
+    int makeReservation(@Param("id") Long id, @Param("adultnumber") Long adultNumber, @Param("alhocoltype") String alcoholtype, @Param("cateringtype") String cateringtype, @Param("childrennumber") Long childrennumber, @Param("entertainmenttype") String entertainmenttype, @Param("paymenttype") String paymenttype, @Param("ratingtype") String ratingtype, @Param("clientid") Long clientid, @Param("sellerid") Long sellerid, @Param("travelid") Long travelid);
     @Query(value = "Select max(id) from reservation", nativeQuery = true)
     Long getMaxId();
     @Modifying
