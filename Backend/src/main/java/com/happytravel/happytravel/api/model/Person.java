@@ -42,4 +42,7 @@ public class Person{
 	@Column(name = "email", nullable = false)
     @NotNull(message = "email cannot be empty.")
     private String email;
+	public Long getID(){
+	    return id;
+    }
 }

@@ -11,4 +11,5 @@ public interface PersonService {
     int insertPerson(Long id, String email, String name, Long pesel, String phonenumber, String surname, Long userid);
     Person getPersonByEmail(String email);
     Person getPersonByUserID(Long uID);
+    int changeMail(String mail, Long pID);
 }
