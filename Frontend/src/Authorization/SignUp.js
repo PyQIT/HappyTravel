@@ -1,5 +1,4 @@
 import React from 'react';
-import SignIn from './SignIn.js'
 
 import MainPage from "../Pages/MainPage";
 
@@ -19,17 +18,17 @@ class SignUp extends React.Component {
             pnumber: "",
             phone: "",
             email: ""
-        }
+        };
         this.handleChange = this.handleChange.bind(this);
         this.signUp = this.signUp.bind(this);
     }
 
 
     signUp(){
-        let correct = true
-        console.log("signUp()")
-        if(this.state.pass != this.state.pass2){
-            correct = false
+        let correct = true;
+        console.log("signUp()");
+        if(this.state.pass !== this.state.pass2){
+            correct = false;
             this.setState((prevState, props) => ({
                 pass: prevState.pass,
                 pass2: prevState.pass2,
@@ -37,7 +36,7 @@ class SignUp extends React.Component {
             }));
         }
         if(this.state.pass.length < 6){
-            correct = false
+            correct = false;
             this.setState((prevState, props) => ({
                 pass: prevState.pass,
                 pass2: prevState.pass2,
@@ -50,25 +49,25 @@ class SignUp extends React.Component {
                 console.log(this.state.pass + " = " + this.state.pass2);
                 const url ="http://localhost:8080/signup?login=" + this.state.login + "&pass=" + this.state.pass + "&name=" + this.state.fname + "&lastName=" + this.state.lname
                     + "&email=" + this.state.email + "&pesel=" + this.state.pnumber + "&phoneNumber=" + this.state.phone
-                console.log(url)
+                console.log(url);
                 fetch(url)
                     .then(response => response.json())
                     .then(data => {
                         let r;
                         console.log(data);
-                        if (data == 0) {
-                            r = "Dodano pomyslnie"
+                        if (data === 0) {
+                            r = "Dodano pomyslnie";
                             this.setState({
                                 succeded: true
                             })
                         }
                         else{
-                            if(data == -1){
+                            if(data === -1){
                                 this.setState((prevState, props) => ({
                                     error: "This username is already taken!"
                                 }));
                             }
-                            if(data == -2){
+                            if(data === -2){
                                 this.setState((prevState, props) => ({
                                     error: "This email is already used!"
                                 }));
@@ -91,7 +90,7 @@ class SignUp extends React.Component {
     }
 
     handleChange(event) {
-        const {name, value} = event.target
+        const {name, value} = event.target;
         this.setState({
             [name]: value
         })

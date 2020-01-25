@@ -1,5 +1,5 @@
 import React from "react";
-import OfficeAdressDisplay from "./OfficeAdressDisplay";
+import OfficeAdressDisplay from "../Office/OfficeAdressDisplay";
 
 class EditEmployee extends React.Component {
     constructor(props) {

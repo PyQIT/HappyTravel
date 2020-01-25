@@ -1,5 +1,4 @@
 import React from "react"
-import SignUp from "./SignUp";
 
 class SignIn extends React.Component {
 
@@ -10,13 +9,13 @@ class SignIn extends React.Component {
             pass: "",
             error: "",
             result: {}
-        }
+        };
         this.handleChange = this.handleChange.bind(this);
         this.signIn = this.signIn.bind(this);
     }
 
     handleChange(event){
-        const {name, value} = event.target
+        const {name, value} = event.target;
         this.setState({
             [name]: value
         })
@@ -28,11 +27,11 @@ class SignIn extends React.Component {
             .then(response => response.json())
             .then(data =>{
                 console.log(data);
-                if(data.result == 0) {
+                if(data.result === 0) {
                     this.setState({
                         result: data.user,
                         error: "",
-                    })
+                    });
                     this.props.login(1,this.state.result)
                 }
                 else{

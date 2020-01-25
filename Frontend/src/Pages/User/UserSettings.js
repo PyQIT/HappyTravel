@@ -38,7 +38,7 @@ class UserSettings extends React.Component{
     }
 
     changeMode(m){
-        if (this.state.mode == m)  {
+        if (this.state.mode === m)  {
             this.setState({
                     mode: 0,
                 })
@@ -78,7 +78,7 @@ class UserSettings extends React.Component{
                     this.setState({
                         result: data
                     })
-                    if(this.state.result == -1) {
+                    if(this.state.result === -1) {
                         this.setState({
                             errorCode: 'Incorrect password!'
                         })
@@ -108,7 +108,7 @@ class UserSettings extends React.Component{
                     this.setState({
                         result: data
                     })
-                    if(this.state.result == -1) {
+                    if(this.state.result === -1) {
                         this.setState({
                             errorCode: 'Incorrect password!'
                         })
@@ -215,9 +215,9 @@ class UserSettings extends React.Component{
     }
 
     render() {
-        if (this.state.mode == 0) return this.showSettings();
-        if (this.state.mode == 1) return this.passwordChangeScreen();
-        if (this.state.mode == 2) return this.emailChangeScreen();
+        if (this.state.mode === 0) return this.showSettings();
+        if (this.state.mode === 1) return this.passwordChangeScreen();
+        if (this.state.mode === 2) return this.emailChangeScreen();
     }
 
 
