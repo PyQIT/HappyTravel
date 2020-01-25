@@ -7,5 +7,6 @@ import java.util.List;
 public interface GuideTravelService {
 
     List<GuideTravel> getGuideTravels();
-
+    Long getMaxId();
+    int addGuideToTravel(Long id, Long guideID, Long travelID);
 }

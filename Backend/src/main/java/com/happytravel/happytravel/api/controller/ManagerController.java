@@ -31,6 +31,7 @@ public class ManagerController {
     private final GuideService guideService;
     private final SellerService sellerService;
     private final TravelService travelService;
+    private final GuideTravelService guideTravelService;
 
     @GetMapping("/managers")
     @ResponseStatus(HttpStatus.OK)
@@ -119,7 +120,7 @@ public class ManagerController {
         }
     }
     @GetMapping("/addTravel")
-    public int addTravel(Long adultCost, Long alcoholCost, Long cateringCost, Long childCost, String description, String endDate, Long entertainmentCost, String startDate, Long hotelID, Long loggedUser){
+    public int addTravel(@RequestParam Long adultCost, @RequestParam Long alcoholCost, @RequestParam Long cateringCost, @RequestParam Long childCost, @RequestParam String description, @RequestParam String endDate, @RequestParam Long entertainmentCost, @RequestParam String startDate, @RequestParam Long hotelID, @RequestParam Long loggedUser){
         if(!isManager(loggedUser)) return -1;
         else {
             try {
@@ -137,5 +138,11 @@ public class ManagerController {
         }
         return -3;
     }
-
+    @GetMapping("/addGuideToTravel")
+    public int addGuideToTravel(@RequestParam Long loggedUser, @RequestParam Long guideID, @RequestParam Long travelID){
+        if(!isManager(loggedUser)) return -1;
+        else {
+            return guideTravelService.addGuideToTravel(guideTravelService.getMaxId()+1, guideID, travelID);
+        }
+    }
 }
