@@ -6,13 +6,9 @@ import MainPage from './Pages/MainPage.js'
 import SignUp from './Authorization/SignUp.js'
 import SignIn from './Authorization/SignIn.js'
 import NavMenu from "./Navigation/NavMenu";
-import Employees from "./Pages/Manager/Employees";
 
 import baner from './baner.png'
-import EmployeeOnList from "./Pages/Manager/EmployeeOnList";
-import AddEmployee from "./Pages/Manager/AddEmployee";
-import NewReservation from "./Pages/Customer/NewReservation";
-import Trip from "./Pages/Trip";
+
 
 class App extends React.Component {
 
@@ -39,7 +35,7 @@ class App extends React.Component {
 
 
         this.setState((prevState, props) => ({
-            currentScreen: <MainPage/>
+            currentScreen: <MainPage switch={this.changeScreen} loggedUser={(this.state.signedIn)?this.state.user.id:null}/>
         }));
     }
 
@@ -51,7 +47,7 @@ class App extends React.Component {
     }
 
     signIn(i, newUser){
-        if(i == 1) {
+        if(i === 1) {
             this.setState((prevState, props) => ({
                 user: newUser,
                 signedIn: true,
@@ -64,6 +60,7 @@ class App extends React.Component {
                 currentScreen: prevState.currentScreen,
                 signedIn: false
             }));
+            this.changeScreen(<MainPage switch={this.changeScreen}/>)
     }
 
 
@@ -76,8 +73,7 @@ class App extends React.Component {
     }
 
     render(){
-        let loginWindow
-        const trips = this.state.dbdata.map(trip => <NewReservation key={trip.id} trip={trip}/>)
+        let loginWindow;
         if(this.state.signedIn){
             loginWindow = (
                 <div className='signInScreen'>
@@ -103,7 +99,7 @@ class App extends React.Component {
       return (
           <div>
               <div className = 'NAGLOWEK'>
-                  <img onMouseDown={()=> this.changeScreen(<MainPage switch={this.changeScreen}/>)} src ={baner} style={{width: '100%'}}></img>
+                  <img alt = 'baner.png' onMouseDown={()=> this.changeScreen(<MainPage switch={this.changeScreen} loggedUser={(this.state.signedIn)?this.state.user.id:null}/>)} src ={baner} style={{width: '100%'}}></img>
               </div>
               <div>
                   <div className = 'MENU'>

@@ -1,6 +1,4 @@
 import React from "react";
-import EmployeeOnList from "./EmployeeOnList";
-import Trip from "../Trip";
 import OfficeAdressDisplay from "./OfficeAdressDisplay";
 import Employees from "./Employees";
 

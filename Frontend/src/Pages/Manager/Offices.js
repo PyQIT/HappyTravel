@@ -1,5 +1,4 @@
 import React from "react";
-import Trip from "../Trip";
 import OfficeListElement from "./OfficeListElement";
 
 class Offices extends  React.Component {

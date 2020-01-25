@@ -34,7 +34,7 @@ class NewReservation extends React.Component{
     handleChange(event) {
         let {name, value} = event.target;
         if(value == null) value = 0;
-        if(value == "") value = 0;
+        if(value === "") value = 0;
         if(value < 0){ value = 0; event.target.value = 0}
 
         console.log(name + ": " + value);
@@ -51,6 +51,7 @@ class NewReservation extends React.Component{
                 +"&cateringtype=" + this.state.catering
                 +"&childrennumber=" + this.state.children
                 +"&entertainmenttype=" + this.state.touring
+                +"&sellerid=null"
                 +"&clientid=" + this.props.loggedUser
                 +"&travelid=" + this.props.trip.id;
             console.log(url);

@@ -17,7 +17,7 @@ class EmployeeOnList extends React.Component{
     fire(u, id){
         console.log("Fire");
         fetch("http://localhost:8080/fireEmployee?loggedUser="+u+"&employeeID="+id)
-            .then(response => response.json())
+            .then(response => response.json());
         this.props.refresh();
     }
 
@@ -26,7 +26,7 @@ class EmployeeOnList extends React.Component{
     }
 
     takeAction(logedUser, id){
-        console.log("Action Taken: " + this.props.action)
+        console.log("Action Taken: " + this.props.action);
         if (this.props.action === 2) {this.fire(logedUser, id);}
         if (this.props.action === 1) {this.modify(logedUser, id);}
         this.props.refresh();
@@ -41,7 +41,7 @@ class EmployeeOnList extends React.Component{
                 <td>{this.props.emp.position}</td>
                 <td>{this.props.emp.officeID.id}</td>
                 <td>{(new Date(this.props.emp.hiringDate)).toLocaleDateString()}</td>
-                {(this.props.action !=0)?<td onMouseDown={()=>this.takeAction(this.props.loggedUser, this.props.emp.id)} className='actionCell'>{(this.props.action==1)?"Modify":"Fire"}</td>:null}
+                {(this.props.action !==0)?<td onMouseDown={()=>this.takeAction(this.props.loggedUser, this.props.emp.id)} className='actionCell'>{(this.props.action===1)?"Modify":"Fire"}</td>:null}
             </tr>
         )
     }

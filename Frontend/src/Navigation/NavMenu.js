@@ -6,15 +6,8 @@ import UserSettings from "../Pages/User/UserSettings";
 
 class NavMenu extends React.Component{
 
-    constructor(props) {
-        super(props);
-
-    }
-
-
-
     getMenu(){
-        console.log(this.props.type)
+        console.log(this.props.type);
         if(this.props.type == null){
             return(
                 <div>
@@ -24,7 +17,7 @@ class NavMenu extends React.Component{
                 </div>
             );
         }
-        if(this.props.type == 'Klient'){
+        if(this.props.type === 'Klient'){
             return(
                 <div>
                     <button className='panelButton'>Browse</button>
@@ -35,7 +28,7 @@ class NavMenu extends React.Component{
                 </div>
             );
         }
-        if(this.props.type == 'Kierownik'){
+        if(this.props.type === 'Kierownik'){
             return(
                 <div>
                     <button className='panelSpecialButton' onMouseDown={()=> this.props.switch(<Employees loggedUser={this.props.loggedUser.id} switch={this.props.switch}/>)}>Pracownicy</button>
