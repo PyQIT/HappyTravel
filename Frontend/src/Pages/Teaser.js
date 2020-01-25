@@ -37,7 +37,6 @@ class Teaser extends React.Component {
         const divStyle = {
             backgroundColor: this.state.color
         };
-        console.log(this.state.color);
         return(
             <div className='teaser' style={divStyle} onClick={()=>this.clicked()}>
                 <table style={{width: '100%'}}><tbody>
