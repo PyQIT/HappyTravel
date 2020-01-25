@@ -43,7 +43,8 @@ public class ReservationController {
             eType = EntertaimentType.values()[rand.nextInt(AlcoholType.values().length-2)];
         if(sellerid.equals("null"))
             sellerID=null;
-        else sellerID = Long.parseLong(sellerid);
+        else
+            sellerID = Long.parseLong(sellerid);
         return reservationService.makeReservation(reservationService.getMaxId()+1, adultNumber, aType.name(), cType.name(), childrennumber, eType.name(), null, null, clientid, sellerID, travelid);
     }
     @GetMapping("/cancelReservation")

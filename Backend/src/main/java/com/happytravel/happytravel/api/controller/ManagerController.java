@@ -31,6 +31,7 @@ public class ManagerController {
     private final GuideService guideService;
     private final SellerService sellerService;
     private final TravelService travelService;
+    private final GuideTravelService guideTravelService;
 
     @GetMapping("/managers")
     @ResponseStatus(HttpStatus.OK)
@@ -136,5 +137,12 @@ public class ManagerController {
             }
         }
         return -3;
+    }
+    @GetMapping("/addGuideToTravel")
+    public int addGuideToTravel(@RequestParam Long loggedUser, @RequestParam Long guideID, @RequestParam Long travelID){
+        if(!isManager(loggedUser)) return -1;
+        else {
+            return guideTravelService.addGuideToTravel(guideTravelService.getMaxId()+1, guideID, travelID);
+        }
     }
 }

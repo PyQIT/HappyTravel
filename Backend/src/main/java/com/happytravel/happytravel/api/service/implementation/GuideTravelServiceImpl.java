@@ -17,7 +17,12 @@ public class GuideTravelServiceImpl implements GuideTravelService {
     @Override
     public List<GuideTravel> getGuideTravels() {
         return guideTravelRepository.getAllGuideTravels();
-
+    }
+    public Long getMaxId(){
+        return guideTravelRepository.getMaxId();
+    }
+    public int addGuideToTravel(Long id, Long guideID, Long travelID){
+        return guideTravelRepository.addGuideToTravel(id, guideID, travelID);
     }
 }
 
