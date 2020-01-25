@@ -9,4 +9,5 @@ public interface SellerService {
     List<Seller> getSellers();
     Long getMaxId();
     int insertSeller(Long id, Long sellerId);
+    Long getSellerIdByUserId(Long uID);
 }

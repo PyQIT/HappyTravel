@@ -30,4 +30,6 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     int cancelReservation(@Param("rID") Long rID, @Param("cID") Long cID);
     @Query(value = "Select Reservation.id from Reservation, travel where Reservation.id = :rID and Reservation.travelid = Travel.id and Travel.startdate > :date", nativeQuery = true)
     Long checkIfTravelStarted(@Param("rID") Long rID, @Param("date") Date date);
+    @Query(value = "select count(*) from reservation where travelid = :tID", nativeQuery = true)
+    Long countReservations(@Param("tID") Long tID);
 }

@@ -35,4 +35,7 @@ public class ReservationServiceImpl implements ReservationService {
     public int cancelReservation(Long rID, Long cID){
         return reservationRepository.cancelReservation(rID, cID);
     }
+    public Long countReservations(Long tID){
+        return reservationRepository.countReservations(tID);
+    }
 }

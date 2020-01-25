@@ -3,6 +3,7 @@ package com.happytravel.happytravel.api.controller;
 import com.happytravel.happytravel.api.dto.ReservationDto;
 import com.happytravel.happytravel.api.model.Reservation;
 import com.happytravel.happytravel.api.service.ReservationService;
+import com.happytravel.happytravel.api.service.SellerService;
 import com.happytravel.happytravel.api.transformer.ReservationTransformer;
 import com.happytravel.happytravel.api.model.enums.*;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ import java.util.Date;
 public class ReservationController {
 
     private final ReservationService reservationService;
+    private final SellerService sellerService;
 
     @GetMapping("/reservations")
     @ResponseStatus(HttpStatus.OK)
@@ -43,13 +45,19 @@ public class ReservationController {
             eType = EntertaimentType.values()[rand.nextInt(AlcoholType.values().length-2)];
         if(sellerid.equals("null"))
             sellerID=null;
-        else
+        else {
             sellerID = Long.parseLong(sellerid);
+            if(sellerService.getSellerIdByUserId(sellerID) == null) return -1;
+        }
         return reservationService.makeReservation(reservationService.getMaxId()+1, adultNumber, aType.name(), cType.name(), childrennumber, eType.name(), null, null, clientid, sellerID, travelid);
     }
     @GetMapping("/cancelReservation")
     public int cancelReservation(@RequestParam Long reservationID, @RequestParam Long clientID){
         if(reservationService.checkIfTravelStarted(reservationID, new Date()) == null) return -1;
         else return reservationService.cancelReservation(reservationID, clientID);
+    }
+    @GetMapping("/countReservations")
+    public Long countReservations(@RequestParam Long travelID){
+        return reservationService.countReservations(travelID);
     }
 }
