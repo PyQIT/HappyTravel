@@ -165,11 +165,11 @@ public class ManagerController {
         }
     }
     @GetMapping("/addAdressAndHotel")
-    public int addAdressAndHotel(@RequestParam Long loggedUser, @RequestParam String aNR, @RequestParam String city, @RequestParam String country, @RequestParam String hNR, @RequestParam String street, @RequestParam String hotelName) {
+    public int addAdressAndHotel(@RequestParam Long loggedUser, @RequestParam String city, @RequestParam String country, @RequestParam String hNR, @RequestParam String street, @RequestParam String hotelName) {
         if(!isManager(loggedUser)) return -1;
         else {
             Long aID = adresService.getMaxId() + 1;
-            if (adresService.addAdress(aID, aNR, city, country, hNR, street) == 0) return 0;
+            if (adresService.addAdress(aID, null city, country, hNR, street) == 0) return 0;
             return hotelService.addHotel(hotelService.getMaxId() + 1, hotelName, aID);
         }
     }
