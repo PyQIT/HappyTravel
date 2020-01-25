@@ -54,8 +54,7 @@ class App extends React.Component {
         if(i == 1) {
             this.setState((prevState, props) => ({
                 user: newUser,
-                currentScreen: prevState.currentScreen,
-                signedIn: true
+                signedIn: true,
             }));
         }
     }
@@ -109,7 +108,7 @@ class App extends React.Component {
               <div>
                   <div className = 'MENU'>
                       {loginWindow}
-                      <NavMenu type={this.state.user.userType} switch={this.changeScreen} loggedUser={(this.state.user?this.state.user.id:null)}/>
+                      <NavMenu type={this.state.user.userType} switch={this.changeScreen} loggedUser={(this.state.signedIn?this.state.user:null)}/>
                   </div>
                   <div className = 'TRESC'>
                           {this.state.currentScreen}

@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "office")
+@Table(name = "Office")
 public class Office{
 	
 	@Id
