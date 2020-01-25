@@ -56,6 +56,10 @@ public class ReservationController {
         if(reservationService.checkIfTravelStarted(reservationID, new Date()) == null) return -1;
         else return reservationService.cancelReservation(reservationID, clientID);
     }
+    @GetMapping("/deleteReservationByTravelID")
+    public int deleteReservationByTravelID(@RequestParam Long reservationID){
+        return reservationService.deleteReservationByTravelID(reservationID);
+    }
     @GetMapping("/countReservations")
     public Long countReservations(@RequestParam Long travelID){
         return reservationService.countReservations(travelID);

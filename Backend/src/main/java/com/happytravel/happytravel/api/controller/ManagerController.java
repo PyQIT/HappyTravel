@@ -32,6 +32,7 @@ public class ManagerController {
     private final SellerService sellerService;
     private final TravelService travelService;
     private final GuideTravelService guideTravelService;
+    private final ReservationService reservationService;
 
     @GetMapping("/managers")
     @ResponseStatus(HttpStatus.OK)
@@ -143,6 +144,15 @@ public class ManagerController {
         if(!isManager(loggedUser)) return -1;
         else {
             return guideTravelService.addGuideToTravel(guideTravelService.getMaxId()+1, guideID, travelID);
+        }
+    }
+    @GetMapping("/deleteTravel")
+    public int deleteTravel(@RequestParam Long travelID, @RequestParam Long loggedUser){
+        if(!isManager(loggedUser)) return -1;
+        else {
+            if(reservationService.deleteReservationByTravelID(travelID) == 0) return 0;
+            if(guideTravelService.deleteByTravelID(travelID) == 0) return 0;
+            return travelService.deleteTravel(travelID);
         }
     }
 }

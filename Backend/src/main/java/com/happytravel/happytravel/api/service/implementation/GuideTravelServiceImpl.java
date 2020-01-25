@@ -24,5 +24,8 @@ public class GuideTravelServiceImpl implements GuideTravelService {
     public int addGuideToTravel(Long id, Long guideID, Long travelID){
         return guideTravelRepository.addGuideToTravel(id, guideID, travelID);
     }
+    public int deleteByTravelID(Long tID){
+        return guideTravelRepository.deleteByTravelID(tID);
+    }
 }
 

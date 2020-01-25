@@ -21,5 +21,9 @@ public interface GuideTravelRepository extends JpaRepository<GuideTravel, Long> 
     @Transactional
     @Query(value = "insert into guidetravel(id, guideid, travelid) values(:id, :guideID, :travelID)", nativeQuery = true)
     int addGuideToTravel(@Param("id") Long id, @Param("guideID") Long guideID, @Param("travelID") Long travelID);
+    @Modifying
+    @Transactional
+    @Query(value = "delete from guidetravel where travelID = :tID", nativeQuery = true)
+    int deleteByTravelID(@Param("tID") Long tID);
 
 }
