@@ -18,9 +18,7 @@ class TripListElement extends React.Component{
     }
 
     deleteTrip(){
-        console.log("deleteTrip()");
         const url = "http://localhost:8080/deleteTravel?travelID=" + this.props.trip.id + "&loggedUser=" + this.props.loggedUser;
-        console.log(url);
         fetch(url)
             .then(data => {
                 this.props.update();
@@ -29,7 +27,6 @@ class TripListElement extends React.Component{
     }
 
     clicked(){
-        console.log("Clicked()");
         if(this.props.action === 2) this.deleteTrip();
     }
 

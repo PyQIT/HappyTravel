@@ -141,11 +141,9 @@ class AddEmployee extends React.Component{
             + "&type=" + this.state.position
             + "&salary=" + this.state.salary
             + "&officeID=" + this.state.office;
-            console.log(url);
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    console.log("Data: " + data);
                     this.setState({
                         result: data,
                         created: true,
