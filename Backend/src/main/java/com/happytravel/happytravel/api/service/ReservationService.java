@@ -13,4 +13,5 @@ public interface ReservationService {
     Long getMaxId();
     Long checkIfTravelStarted(Long rID, Date date);
     int cancelReservation(Long rID, Long cID);
+    Long countReservations(Long tID);
 }
