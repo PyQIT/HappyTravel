@@ -169,7 +169,7 @@ public class ManagerController {
         if(!isManager(loggedUser)) return -1;
         else {
             Long aID = adresService.getMaxId() + 1;
-            if (adresService.addAdress(aID, null city, country, hNR, street) == 0) return 0;
+            if (adresService.addAdress(aID, null, city, country, hNR, street) == 0) return 0;
             return hotelService.addHotel(hotelService.getMaxId() + 1, hotelName, aID);
         }
     }
