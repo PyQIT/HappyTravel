@@ -18,12 +18,19 @@ class TripListElement extends React.Component{
     }
 
     deleteTrip(){
-        fetch("http://localhost:8080/countReservations?travelID=" + this.props.trip.id)
-            .then(response => response.json())
+        console.log("deleteTrip()");
+        const url = "http://localhost:8080/deleteTravel?travelID=" + this.props.trip.id + "&loggedUser=" + this.props.loggedUser;
+        console.log(url);
+        fetch(url)
             .then(data => {
-                this.setState({
-                    reservations: data,
-                })})
+                this.props.update();
+                })
+
+    }
+
+    clicked(){
+        console.log("Clicked()");
+        if(this.props.action === 2) this.deleteTrip();
     }
 
     render() {
@@ -40,7 +47,7 @@ class TripListElement extends React.Component{
                 <td>{this.props.trip.hotelID.adresID.country}</td>
                 <td>{this.props.trip.hotelID.hotelName}</td>
                 <td>{this.state.reservations}</td>
-                {(this.props.action!==0)?<td className='actionCell'>{action}</td>:null}
+                {(this.props.action!==0)?<td className='actionCell' onMouseDown={()=>this.clicked()}>{action}</td>:null}
             </tr>
         )
     }

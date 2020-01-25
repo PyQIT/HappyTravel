@@ -1,5 +1,6 @@
 import React from "react";
 import TripListElement from "./TripListElement";
+import NewTrip from "./NewTrip";
 
 class TripList extends React.Component{
     constructor(props) {
@@ -8,9 +9,10 @@ class TripList extends React.Component{
             tripsData: [],
             action: 0,
         }
+        this.getTravels = this.getTravels.bind(this);
     }
 
-    componentDidMount() {
+    getTravels(){
         fetch("http://localhost:8080/futureTravels")
             .then(response => response.json())
             .then(data => {
@@ -18,6 +20,10 @@ class TripList extends React.Component{
                     tripsData: data
                 })
             })
+    }
+
+    componentDidMount() {
+       this.getTravels();
     }
 
     changeAction(a){
@@ -32,11 +38,11 @@ class TripList extends React.Component{
     }
 
     render(){
-        const listElements = this.state.tripsData.map(trip => <TripListElement trip={trip} action={this.state.action}/>);
+        const listElements = this.state.tripsData.map(trip => <TripListElement key={trip.id} trip={trip} action={this.state.action} loggedUser={this.props.loggedUser} update={this.getTravels}/>);
         return(
             <div>
                 <p>Upcoming Trips</p>
-                <button className='blueButton' >Add</button>
+                <button className='blueButton' onMouseDown={()=>this.props.switch(<NewTrip switch={this.props.switch} loggedUser={this.props.loggedUser}/>)}>Add</button>
                 <button className='blueButton' onMouseDown={()=>this.changeAction(1)}>Manage</button>
                 <button className='blueButton' onMouseDown={()=>this.changeAction(2)}>Delete</button>
                 <table className='niceTable'><tbody>

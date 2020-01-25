@@ -1,9 +1,6 @@
 import React from "react";
 
 class HotelOption extends React.Component{
-    constructor(props) {
-        super(props);
-    }
     render(){
         return(
             <option value={this.props.hotel.id}>

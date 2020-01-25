@@ -3,7 +3,8 @@ import React from "react";
 class CountryOption extends React.Component{
     render(){
         return(
-            <select name={this.props.name} onChange={this.props.onChange}>
+            <select name={this.props.name} onChange={this.props.onChange} defaultValue='default'>
+                <option disabled value="default"> -- select a country -- </option>
                 <option value="Afganistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
