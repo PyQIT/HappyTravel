@@ -51,7 +51,7 @@ class App extends React.Component {
     }
 
     signIn(i, newUser){
-        if(i == 1) {
+        if(i === 1) {
             this.setState((prevState, props) => ({
                 user: newUser,
                 signedIn: true,

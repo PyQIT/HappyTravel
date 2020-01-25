@@ -3,6 +3,7 @@ import React from "react";
 import Employees from "../Pages/Manager/Employees";
 import Offices from "../Pages/Manager/Offices";
 import UserSettings from "../Pages/User/UserSettings";
+import AvailableTravels from "../Pages/Customer/AvailableTravels";
 
 class NavMenu extends React.Component{
 
@@ -24,10 +25,10 @@ class NavMenu extends React.Component{
                 </div>
             );
         }
-        if(this.props.type == 'Klient'){
+        if(this.props.type === 'Klient'){
             return(
                 <div>
-                    <button className='panelButton'>Browse</button>
+                    <button className='panelSpecialButton' onMouseDown = {() => this.props.switch(<AvailableTravels loggedUser={this.props.loggedUser} switch={this.props.switch}/>)} >Browse</button>
                     <button className='panelButton'>My Trips</button>
                     <button className='panelButton' onMouseDown={()=> this.props.switch(<UserSettings loggedUser={this.props.loggedUser} switch={this.props.switch}/>)}>Account</button>
                     <button className='panelButton'>About us</button>
@@ -35,7 +36,7 @@ class NavMenu extends React.Component{
                 </div>
             );
         }
-        if(this.props.type == 'Kierownik'){
+        if(this.props.type === 'Kierownik'){
             return(
                 <div>
                     <button className='panelSpecialButton' onMouseDown={()=> this.props.switch(<Employees loggedUser={this.props.loggedUser.id} switch={this.props.switch}/>)}>Pracownicy</button>

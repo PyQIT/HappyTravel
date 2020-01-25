@@ -28,7 +28,7 @@ class SignIn extends React.Component {
             .then(response => response.json())
             .then(data =>{
                 console.log(data);
-                if(data.result == 0) {
+                if(data.result === 0) {
                     this.setState({
                         result: data.user,
                         error: "",

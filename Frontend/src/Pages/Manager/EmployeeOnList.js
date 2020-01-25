@@ -41,7 +41,7 @@ class EmployeeOnList extends React.Component{
                 <td>{this.props.emp.position}</td>
                 <td>{this.props.emp.officeID.id}</td>
                 <td>{(new Date(this.props.emp.hiringDate)).toLocaleDateString()}</td>
-                {(this.props.action !=0)?<td onMouseDown={()=>this.takeAction(this.props.loggedUser, this.props.emp.id)} className='actionCell'>{(this.props.action==1)?"Modify":"Fire"}</td>:null}
+                {(this.props.action !==0)?<td onMouseDown={()=>this.takeAction(this.props.loggedUser, this.props.emp.id)} className='actionCell'>{(this.props.action==1)?"Modify":"Fire"}</td>:null}
             </tr>
         )
     }

@@ -1,4 +1,5 @@
 import React from "react";
+import AvailableTravels from "./AvailableTravels";
 
 class NewReservation extends React.Component{
     constructor(props) {
@@ -150,7 +151,7 @@ class NewReservation extends React.Component{
                         </tbody>
                     </table>
                 </form>
-                <button className='blueButton'>Cancel</button>
+                <button className='blueButton' onMouseDown={()=>this.props.switch(<AvailableTravels loggedUser={this.props.loggedUser} switch={this.props.switch}/>)}>Cancel</button>
                 <button className='blueButton' onMouseDown={()=>this.addReservation()}>Accept</button>
                 {this.state.response}
             </div>

@@ -28,7 +28,7 @@ class SignUp extends React.Component {
     signUp(){
         let correct = true
         console.log("signUp()")
-        if(this.state.pass != this.state.pass2){
+        if(this.state.pass !== this.state.pass2){
             correct = false
             this.setState((prevState, props) => ({
                 pass: prevState.pass,
@@ -56,19 +56,19 @@ class SignUp extends React.Component {
                     .then(data => {
                         let r;
                         console.log(data);
-                        if (data == 0) {
+                        if (data === 0) {
                             r = "Dodano pomyslnie"
                             this.setState({
                                 succeded: true
                             })
                         }
                         else{
-                            if(data == -1){
+                            if(data === -1){
                                 this.setState((prevState, props) => ({
                                     error: "This username is already taken!"
                                 }));
                             }
-                            if(data == -2){
+                            if(data === -2){
                                 this.setState((prevState, props) => ({
                                     error: "This email is already used!"
                                 }));

@@ -77,7 +77,7 @@ class Employees extends React.Component {
                             <td>Position</td>
                             <td>Office</td>
                             <td>Hired</td>
-                            {this.state.action!='none'?<td>Action</td>:null}
+                            {this.state.action!=='none'?<td>Action</td>:null}
                         </tr>
                        {empList}
                     </tbody>
