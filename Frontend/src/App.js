@@ -17,7 +17,6 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log("App constructor()");
         this.changeScreen = this.changeScreen.bind(this);
         this.signIn = this.signIn.bind(this);
         this.signOut = this.signOut.bind(this);
@@ -28,13 +27,14 @@ class App extends React.Component {
             user: {},
             dbdata: [],
             trip: {},
-            trips: []
+            trips: [],
         }
 
     }
     componentDidMount() {
         this.setState((prevState, props) => ({
             currentScreen: <MainPage switch={this.changeScreen} loggedUser={(this.state.signedIn)?this.state.user.id:null}/>
+            //currentScreen: <NewTrip/>
 
         }));
     }
@@ -48,7 +48,6 @@ class App extends React.Component {
 
     signIn(i, newUser){
         if(i === 1) {
-            console.log("1) loggedUser = " + newUser.id);
             this.setState((prevState, props) => ({
                 user: newUser,
                 signedIn: true,
