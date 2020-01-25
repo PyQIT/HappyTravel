@@ -24,4 +24,8 @@ public interface TravelRepository extends JpaRepository<Travel, Long> {
     int addTravel(@Param("id") Long id, @Param("adultCost") Long adultCost, @Param("alcoholCost") Long alcoholCost, @Param("cateringCost") Long cateringCost, @Param("childCost") Long childCost, @Param("description") String description, @Param("endDate") Date endDate, @Param("entertainmentCost") Long entertainmentCost, @Param("startDate") Date startDate, @Param("hotelID") Long hotelID);
     @Query(value = "Select max(id) from travel", nativeQuery = true)
     Long getMaxId();
+    @Modifying
+    @Transactional
+    @Query(value = "delete from travel where id = :tID", nativeQuery = true)
+    int deleteTravel(@Param("tID") Long tID);
 }

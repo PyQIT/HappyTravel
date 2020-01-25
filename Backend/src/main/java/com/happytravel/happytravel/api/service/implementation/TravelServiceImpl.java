@@ -26,5 +26,8 @@ public class TravelServiceImpl implements TravelService {
     public Long getMaxId(){
         return travelRepository.getMaxId();
     }
+    public int deleteTravel(Long tID){
+        return travelRepository.deleteTravel(tID);
+    }
 
 }

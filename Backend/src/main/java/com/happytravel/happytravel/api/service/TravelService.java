@@ -10,4 +10,5 @@ public interface TravelService {
     List<Travel> getFutureTravels(Date date);
     int addTravel(Long id, Long adultCost, Long alcoholCost, Long cateringCost, Long childCost, String description, Date endDate, Long entertainmentCost, Date startDate, Long hotelID);
     Long getMaxId();
+    int deleteTravel(Long tID);
 }
