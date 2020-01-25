@@ -119,7 +119,7 @@ public class ManagerController {
         }
     }
     @GetMapping("/addTravel")
-    public int addTravel(Long adultCost, Long alcoholCost, Long cateringCost, Long childCost, String description, String endDate, Long entertainmentCost, String startDate, Long hotelID, Long loggedUser){
+    public int addTravel(@RequestParam Long adultCost, @RequestParam Long alcoholCost, @RequestParam Long cateringCost, @RequestParam Long childCost, @RequestParam String description, @RequestParam String endDate, @RequestParam Long entertainmentCost, @RequestParam String startDate, @RequestParam Long hotelID, @RequestParam Long loggedUser){
         if(!isManager(loggedUser)) return -1;
         else {
             try {
@@ -137,5 +137,4 @@ public class ManagerController {
         }
         return -3;
     }
-
 }
