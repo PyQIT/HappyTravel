@@ -15,6 +15,9 @@ import java.util.stream.Collectors;
 import java.util.Random;
 import java.util.Date;
 
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
@@ -27,6 +30,7 @@ public class ManagerController {
     private final ClientService clientService;
     private final GuideService guideService;
     private final SellerService sellerService;
+    private final TravelService travelService;
 
     @GetMapping("/managers")
     @ResponseStatus(HttpStatus.OK)
@@ -113,6 +117,25 @@ public class ManagerController {
             userService.updateType(position, userService.getUserIDByEmployeeID(employeeID));
             return 0;
         }
+    }
+    @GetMapping("/addTravel")
+    public int addTravel(Long adultCost, Long alcoholCost, Long cateringCost, Long childCost, String description, String endDate, Long entertainmentCost, String startDate, Long hotelID, Long loggedUser){
+        if(!isManager(loggedUser)) return -1;
+        else {
+            try {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = new Date();
+                Date start = formatter.parse(startDate);
+                Date end = formatter.parse(endDate);
+                if(start.before(date) || end.before(date) || start.after(end)) return -2;
+                else{
+                    return travelService.addTravel(travelService.getMaxId()+1, adultCost, alcoholCost, cateringCost, childCost, description, end, entertainmentCost, start, hotelID);
+                }
+            } catch (ParseException e){
+                e.printStackTrace();
+            }
+        }
+        return -3;
     }
 
 }

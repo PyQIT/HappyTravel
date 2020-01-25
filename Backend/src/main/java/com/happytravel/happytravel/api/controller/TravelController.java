@@ -31,4 +31,5 @@ public class TravelController {
         List<Travel> travels = travelService.getFutureTravels(new Date());
         return travels.stream().map(TravelTransformer::convertToDto).collect(Collectors.toList());
     }
-}
+
+    }

@@ -20,5 +20,11 @@ public class TravelServiceImpl implements TravelService {
         return travelRepository.getAllTravel();
     }
     public List<Travel> getFutureTravels(Date date){ return travelRepository.getFutureTravels(date);}
+    public int addTravel(Long id, Long adultCost, Long alcoholCost, Long cateringCost, Long childCost, String description, Date endDate, Long entertainmentCost, Date startDate, Long hotelID){
+        return travelRepository.addTravel(id, adultCost, alcoholCost, cateringCost, childCost, description, endDate, entertainmentCost, startDate, hotelID);
+    }
+    public Long getMaxId(){
+        return travelRepository.getMaxId();
+    }
 
 }

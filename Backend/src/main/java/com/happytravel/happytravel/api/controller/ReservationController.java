@@ -29,18 +29,22 @@ public class ReservationController {
         return reservation.stream().map(ReservationTransformer::convertToDto).collect(Collectors.toList());
     }
     @GetMapping("/makeReservation")
-    public int makeReservation(@RequestParam Long adultNumber, @RequestParam boolean alcoholtype, @RequestParam boolean cateringtype, @RequestParam Long childrennumber, @RequestParam boolean entertainmenttype, @RequestParam Long clientid, @RequestParam Long travelid) {
+    public int makeReservation(@RequestParam Long adultNumber, @RequestParam boolean alcoholtype, @RequestParam boolean cateringtype, @RequestParam Long childrennumber, @RequestParam boolean entertainmenttype, @RequestParam Long clientid, @RequestParam String sellerid, @RequestParam Long travelid) {
         Random rand = new Random();
         AlcoholType aType = AlcoholType.NONE;
         CateringType cType = CateringType.NONE;
         EntertaimentType eType = EntertaimentType.NONE;
+        Long sellerID;
         if(alcoholtype)
-            aType = AlcoholType.values()[rand.nextInt(AlcoholType.values().length-1)];
+            aType = AlcoholType.values()[rand.nextInt(AlcoholType.values().length-2)];
         if(cateringtype)
-            cType = CateringType.values()[rand.nextInt(AlcoholType.values().length-1)];
+            cType = CateringType.values()[rand.nextInt(AlcoholType.values().length-2)];
         if(entertainmenttype)
-            eType = EntertaimentType.values()[rand.nextInt(AlcoholType.values().length-1)];
-        return reservationService.makeReservation(reservationService.getMaxId()+1, adultNumber, aType.name(), cType.name(), childrennumber, eType.name(), null, null, clientid, null, travelid);
+            eType = EntertaimentType.values()[rand.nextInt(AlcoholType.values().length-2)];
+        if(sellerid.equals("null"))
+            sellerID=null;
+        else sellerID = Long.parseLong(sellerid);
+        return reservationService.makeReservation(reservationService.getMaxId()+1, adultNumber, aType.name(), cType.name(), childrennumber, eType.name(), null, null, clientid, sellerID, travelid);
     }
     @GetMapping("/cancelReservation")
     public int cancelReservation(@RequestParam Long reservationID, @RequestParam Long clientID){
