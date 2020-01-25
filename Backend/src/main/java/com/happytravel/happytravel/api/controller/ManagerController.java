@@ -33,6 +33,8 @@ public class ManagerController {
     private final TravelService travelService;
     private final GuideTravelService guideTravelService;
     private final ReservationService reservationService;
+    private final AdresService adresService;
+    private final HotelService hotelService;
 
     @GetMapping("/managers")
     @ResponseStatus(HttpStatus.OK)
@@ -155,4 +157,21 @@ public class ManagerController {
             return travelService.deleteTravel(travelID);
         }
     }
+    @GetMapping("/addAdress")
+    public int addAdress(@RequestParam Long loggedUser, @RequestParam String aNR, @RequestParam String city, @RequestParam String country, @RequestParam String hNR, @RequestParam String street){
+        if(!isManager(loggedUser)) return -1;
+        else {
+            return adresService.addAdress(adresService.getMaxId() + 1, aNR, city, country, hNR, street);
+        }
+    }
+    @GetMapping("/addAdressAndHotel")
+    public int addAdressAndHotel(@RequestParam Long loggedUser, @RequestParam String aNR, @RequestParam String city, @RequestParam String country, @RequestParam String hNR, @RequestParam String street, @RequestParam String hotelName) {
+        if(!isManager(loggedUser)) return -1;
+        else {
+            Long aID = adresService.getMaxId() + 1;
+            if (adresService.addAdress(aID, aNR, city, country, hNR, street) == 0) return 0;
+            return hotelService.addHotel(hotelService.getMaxId() + 1, hotelName, aID);
+        }
+    }
+
 }

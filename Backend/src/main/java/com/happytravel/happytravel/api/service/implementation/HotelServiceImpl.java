@@ -18,5 +18,12 @@ public class HotelServiceImpl implements HotelService {
     public List<Hotel> getHotels(){
         return hotelRepository.getAllHotels();
     }
+    @Override
+    public int addHotel(Long id,String hName, Long aID){
+        return hotelRepository.addHotel(id, hName, aID);
+    }
+    public Long getMaxId(){
+        return hotelRepository.getMaxId();
+    }
 
 }
