@@ -39,13 +39,6 @@ html, body {
     background-color:  darkslateblue;
 }
 
-.tripElement{
-    background-color: cornflowerblue;
-    border: dashed crimson;
-    text-align: left;
-    margin-bottom: 5px;
-}
-
 .signInScreen{
 
     background-color: orange;
@@ -172,6 +165,7 @@ p{
 
 
 .teaser {
+    width: 50%;
     border-radius:39px;
     border:8px solid #ffffff;
     display:inline-block;

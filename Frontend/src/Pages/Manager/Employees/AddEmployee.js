@@ -1,5 +1,5 @@
 import React from "react";
-import OfficeAdressDisplay from "./OfficeAdressDisplay";
+import OfficeAdressDisplay from "../Office/OfficeAdressDisplay";
 import Employees from "./Employees";
 
 class AddEmployee extends React.Component{

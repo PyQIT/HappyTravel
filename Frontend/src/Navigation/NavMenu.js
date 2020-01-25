@@ -1,7 +1,7 @@
 import React from "react";
 
-import Employees from "../Pages/Manager/Employees";
-import Offices from "../Pages/Manager/Offices";
+import Employees from "../Pages/Manager/Employees/Employees";
+import Offices from "../Pages/Manager/Office/Offices";
 import UserSettings from "../Pages/User/UserSettings";
 
 class NavMenu extends React.Component{

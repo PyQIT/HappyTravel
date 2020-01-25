@@ -1,18 +1,18 @@
 import React from "react";
-
+import MainPage from "../MainPage";
 class NewReservation extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            adults: 0,
+            adults: 1,
             children: 0,
             catering: false,
             alcohol: false,
             touring: false,
             response: null,
-        }
+            done: false,
+        };
         this.handleChange = this.handleChange.bind(this);
-
     }
 
     handleCatering(){
@@ -56,12 +56,15 @@ class NewReservation extends React.Component{
                 +"&travelid=" + this.props.trip.id;
             console.log(url);
             fetch(url)
+            this.setState({
+                done: true,
+            })
         }
 
     }
 
-    render(){
 
+    showResevationForm(){
         const diffTime = Math.abs(new Date(this.props.trip.endDate) - new Date(this.props.trip.startDate));
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         let totalCost = parseInt(this.state.children) * parseInt(this.props.trip.childCost) + parseInt(this.state.adults) * parseInt(this.props.trip.adultCost);
@@ -86,7 +89,7 @@ class NewReservation extends React.Component{
                                 Number of adults
                             </td>
                             <td>
-                                <input type="number" name='adults' onChange={this.handleChange}/>
+                                <input type="number" name='adults' defaultValue='1' onChange={this.handleChange}/>
                             </td>
                             <td>
                                 {this.state.adults * this.props.trip.adultCost}zł
@@ -151,12 +154,25 @@ class NewReservation extends React.Component{
                         </tbody>
                     </table>
                 </form>
-                <button className='blueButton'>Cancel</button>
+                <button className='blueButton' onMouseDown={()=>this.props.switch(<MainPage switch={this.props.switch} loggedUser={this.props.loggedUser}/>)}>Cancel</button>
                 <button className='blueButton' onMouseDown={()=>this.addReservation()}>Accept</button>
                 {this.state.response}
             </div>
-
         )
+    }
+
+    render(){
+        if(!this.state.done)
+            return this.showResevationForm();
+        else{
+            return(
+                <div className='contentBlock'>
+                    Your reservation has been registered.<br/>
+                    You can check it's status by using 'My Account' menu<br/>
+                    <button className='blueButton' onMouseDown={()=>this.props.switch(<MainPage switch={this.props.switch} loggedUser={this.props.loggedUser}/>)}>OK</button>
+                </div>
+            )
+        }
     }
 }
 

@@ -27,6 +27,7 @@ class Teaser extends React.Component {
     }
 
     clicked(){
+        console.log("loggedUser = " + this.props.loggedUser);
         if(this.props.loggedUser === null)
             this.props.switch(<SignUp switch={this.props.switch}/>)
         else
