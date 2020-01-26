@@ -8,6 +8,7 @@ import AvailableTravels from "../Pages/Customer/AviableTravels";
 import About from "../Pages/About";
 import GuideTrips from "../Pages/Guide/GuideTrips";
 import Contact from "../Pages/Contact";
+import CustomerReservations from "../Pages/Customer/CustomerReservations";
 
 class NavMenu extends React.Component{
 
@@ -19,7 +20,7 @@ class NavMenu extends React.Component{
         if(this.props.type === 'Klient'){
             userMenu = (
                 <div>
-                    <button className='panelButton'>My Trips</button>
+                    <button className='panelButton' onMouseDown = {() => this.props.switch(<CustomerReservations loggedUser={this.props.loggedUser} switch={this.props.switch}/>)}>My Trips</button>
                     <button className='panelButton' onMouseDown={()=> this.props.switch(<UserSettings loggedUser={this.props.loggedUser} switch={this.props.switch}/>)}>Account</button>
                 </div>
             );
