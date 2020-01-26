@@ -19,7 +19,7 @@ class OfficeListElement extends React.Component {
 
     render(){
         return(
-            <div className='contentBlock'>
+            <div className='textBlock'>
                 <h1>{this.props.office.adresID.city}</h1>
                 <h2>{this.props.office.adresID.street} {this.props.office.adresID.houseNr} </h2><hr/>
                 Salesmen: {this.state.report.salesmen}<br/>

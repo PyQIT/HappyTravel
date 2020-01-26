@@ -162,7 +162,7 @@ class NewTrip extends React.Component {
         return(
             <div>
                 <p>Add a new Trip</p>
-                <div className='contentBlock'>
+                <div className='textBlock'>
                     <h2>Location</h2>
                     <table style={{width: '100%'}}><tbody><tr>
                         <td>
