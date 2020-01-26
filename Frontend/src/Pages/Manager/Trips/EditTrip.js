@@ -51,12 +51,10 @@ class EditTrip extends React.Component{
     }
 
     delGuides(element, index, array){
-        console.log("STATE: " + this.state.availableGuides);
         const url = "http://localhost:8080/removeGuideFromTravel"
             + "?loggedUser=" + this.state.lu
             + "&guideID=" + element.id
             + "&travelID=" + this.state.trip.id;
-            console.log(url);
             fetch(url);
     }
 
@@ -65,18 +63,15 @@ class EditTrip extends React.Component{
             + "?loggedUser=" + this.state.lu
             + "&guideID=" + element.id
             + "&travelID=" + this.state.trip.id;
-        console.log(url);
         fetch(url);
     }
 
     saveGuides(){
-        console.log("saveGuides()");
         this.state.availableGuides.forEach(this.delGuides);
         this.state.assignedGuides.forEach(this.insGuides);
     }
     handleChange(event) {
         const {name, value} = event.target;
-        console.log(name + ": " + value);
         this.setState({
             [name]: value
 
