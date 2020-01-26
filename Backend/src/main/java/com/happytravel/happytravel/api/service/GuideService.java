@@ -9,4 +9,5 @@ public interface GuideService {
     List<Guide> getGuides();
     Long getMaxId();
     int insertGuide(Long id, Long employeeId);
+    Long getGuideIdByUserId(Long uID);
 }

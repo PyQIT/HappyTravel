@@ -29,5 +29,8 @@ public class TravelServiceImpl implements TravelService {
     public int deleteTravel(Long tID){
         return travelRepository.deleteTravel(tID);
     }
+    public List<Travel> getGuidesTravels(Long gID){
+        return travelRepository.getGuidesTravels(gID);
+    }
 
 }

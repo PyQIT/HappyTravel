@@ -22,4 +22,8 @@ public class GuideServiceImpl implements GuideService {
     public Long getMaxId(){return guideRepository.getMaxId();}
     @Override
     public int insertGuide(Long id, Long employeeId){return guideRepository.insertGuide(id, employeeId);}
+    @Override
+    public Long getGuideIdByUserId(Long uID){
+        return guideRepository.getGuideIdByUserId(uID);
+    }
 }

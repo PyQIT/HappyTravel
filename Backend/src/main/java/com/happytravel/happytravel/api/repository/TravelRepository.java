@@ -28,4 +28,6 @@ public interface TravelRepository extends JpaRepository<Travel, Long> {
     @Transactional
     @Query(value = "delete from travel where id = :tID", nativeQuery = true)
     int deleteTravel(@Param("tID") Long tID);
+    @Query(value = "select t.* from Travel t, GuideTravel gt, Guide g where g.id = :gID and g.id = gt.guideID and gt.travelID = t.id", nativeQuery = true)
+    List<Travel> getGuidesTravels(@Param("gID") Long gID);
 }

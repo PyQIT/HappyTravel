@@ -173,5 +173,4 @@ public class ManagerController {
             return hotelService.addHotel(hotelService.getMaxId() + 1, hotelName, aID);
         }
     }
-
 }

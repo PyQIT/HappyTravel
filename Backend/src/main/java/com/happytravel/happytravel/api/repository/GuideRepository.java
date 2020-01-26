@@ -21,5 +21,7 @@ public interface GuideRepository extends JpaRepository<Guide, Long> {
     @Transactional
     @Query(value = "insert into Guide(id, employeeId) values (:id, :employeeId)", nativeQuery = true)
     int insertGuide(@Param("id") Long id, @Param("employeeId") Long employeeId);
+    @Query(value = "select g.id from person p, employee e, guide g where p.userID = :uID and e.personID = p.id and e.id = g.employeeID", nativeQuery = true)
+    Long getGuideIdByUserId(@Param("uID") Long uID);
 
 }
