@@ -10,4 +10,5 @@ public interface GuideService {
     Long getMaxId();
     int insertGuide(Long id, Long employeeId);
     Long getGuideIdByUserId(Long uID);
+    List<Guide> getGuidesOnTravel(Long tID);
 }

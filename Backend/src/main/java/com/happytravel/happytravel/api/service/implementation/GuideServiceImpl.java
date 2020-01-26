@@ -26,4 +26,8 @@ public class GuideServiceImpl implements GuideService {
     public Long getGuideIdByUserId(Long uID){
         return guideRepository.getGuideIdByUserId(uID);
     }
+    @Override
+    public List<Guide> getGuidesOnTravel(Long tID) {
+        return guideRepository.getGuidesOnTravel(tID);
+    }
 }
