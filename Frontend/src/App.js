@@ -8,7 +8,6 @@ import SignIn from './Authorization/SignIn.js'
 import NavMenu from "./Navigation/NavMenu";
 
 import baner from './baner.png'
-import NewTrip from "./Pages/Manager/Trips/NewTrip";
 
 
 class App extends React.Component {
@@ -34,8 +33,6 @@ class App extends React.Component {
     componentDidMount() {
         this.setState((prevState, props) => ({
             currentScreen: <MainPage switch={this.changeScreen} loggedUser={(this.state.signedIn)?this.state.user.id:null}/>
-            //currentScreen: <NewTrip/>
-
         }));
     }
 
