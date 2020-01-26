@@ -8,10 +8,8 @@ class Teaser extends React.Component {
         this.state = {
             colors: ['darkgoldenrod', 'crimson', 'dodgerblue', 'seagreen', 'darkred', 'darkblue', 'lightsalmon'],
             color: ''
-        }
+        };
         this.pickColor = this.pickColor.bind(this);
-
-
     }
 
     componentDidMount() {
@@ -27,7 +25,7 @@ class Teaser extends React.Component {
 
     clicked(){
         if(this.props.loggedUser === null)
-            this.props.switch(<SignUp switch={this.props.switch}/>)
+            this.props.switch(<SignUp switch={this.props.switch}/>);
         else
             this.props.switch(<NewReservation switch={this.props.switch} loggedUser={this.props.loggedUser} trip={this.props.trip}/>)
     }
@@ -45,9 +43,8 @@ class Teaser extends React.Component {
                     </tr>
                     <tr>
                         <td><i>{this.props.trip.description}</i></td>
-                        <td><button className='panelSpecialButton'>Sign up now!</button></td>
+                        <td><button className='panelSpecialButton'>{(this.props.loggedUser)?"Book!":"Sign up now!"}</button></td>
                     </tr>
-
                 </tbody></table>
             </div>
         )

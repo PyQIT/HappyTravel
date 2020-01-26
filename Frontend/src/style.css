@@ -116,6 +116,7 @@ p{
     border-radius:10px;
     border:1px solid #ffffff;
     display:inline-block;
+    text-align: center;
     width: 100%;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
