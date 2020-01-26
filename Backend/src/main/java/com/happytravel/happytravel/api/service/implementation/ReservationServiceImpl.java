@@ -41,4 +41,13 @@ public class ReservationServiceImpl implements ReservationService {
     public int deleteReservationByTravelID(Long tID){
         return reservationRepository.deleteReservationByTravelID(tID);
     }
+    public Long checkIfTravelEnded(Long rID, Date date){
+        return reservationRepository.checkIfTravelEnded(rID, date);
+    }
+    public String getRatingType(Long rID){
+        return reservationRepository.getRatingType(rID);
+    }
+    public int setRatingType(String rType, Long rID, Long cID){
+        return reservationRepository.setRatingType(rType, rID, cID);
+    }
 }

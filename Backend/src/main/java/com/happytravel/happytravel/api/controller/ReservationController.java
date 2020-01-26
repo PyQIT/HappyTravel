@@ -64,4 +64,16 @@ public class ReservationController {
     public Long countReservations(@RequestParam Long travelID){
         return reservationService.countReservations(travelID);
     }
+    @GetMapping("/rateTravel")
+    public int rateTravel(@RequestParam String ratingType, @RequestParam Long reservationID, @RequestParam Long loggedUser){
+        if(!reservationService.getRatingType(reservationID).equals("NONE")) return -1;
+        if(reservationService.checkIfTravelEnded(reservationID, new Date())==null) return -2;
+        RatingType[] tab = {RatingType.BAD, RatingType.AVERAGE, RatingType.OK, RatingType.GOOD, RatingType.BEST, RatingType.NONE};
+        RatingType r = RatingType.NONE;
+        for(int i=0;i<tab.length-1;i++){
+            if(ratingType.equals(tab[i].name()))
+                r=tab[i];
+        }
+        return reservationService.setRatingType(r.name(), reservationID, loggedUser);
+    }
 }

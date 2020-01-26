@@ -36,4 +36,12 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     @Transactional
     @Query(value = "delete from reservation where travelID = :tID", nativeQuery = true)
     int deleteReservationByTravelID(@Param("tID") Long tID);
+    @Query(value = "select ratingtype from reservation where id = :rID", nativeQuery = true)
+    String getRatingType(@Param("rID")Long rID);
+    @Query(value = "Select Reservation.id from Reservation, travel where Reservation.id = :rID and Reservation.travelid = Travel.id and Travel.enddate < :date", nativeQuery = true)
+    Long checkIfTravelEnded(@Param("rID") Long rID, @Param("date") Date date);
+    @Modifying
+    @Transactional
+    @Query(value = "Update Reservation set ratingtype = :rType where id = :rID and clientID = :cID", nativeQuery = true)
+    int setRatingType(@Param("rType")String rType, @Param("rID") Long rID, @Param("cID") Long cID);
 }

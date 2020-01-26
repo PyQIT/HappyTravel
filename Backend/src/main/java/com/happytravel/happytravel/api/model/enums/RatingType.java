@@ -2,7 +2,7 @@ package com.happytravel.happytravel.api.model.enums;
 
 public enum RatingType {
     BAD,
-    AVARAGE,
+    AVERAGE,
     OK,
     GOOD,
     BEST,

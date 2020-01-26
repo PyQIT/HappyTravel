@@ -15,4 +15,7 @@ public interface ReservationService {
     int cancelReservation(Long rID, Long cID);
     Long countReservations(Long tID);
     int deleteReservationByTravelID(Long tID);
+    Long checkIfTravelEnded(Long rID, Date date);
+    String getRatingType(Long rID);
+    int setRatingType(String rType, Long rID, Long cID);
 }
