@@ -42,4 +42,8 @@ public interface ManagerRepository extends JpaRepository<Manager, Long> {
     @Transactional
     @Query(value = "update Employee set position = :position where id = :eID", nativeQuery = true)
     int updateOffice(@Param("position") String position, @Param("eID") Long eID);
+    @Modifying
+    @Transactional
+    @Query(value = "delete from GuideTravel where guideID=:gID and travelID=:tID", nativeQuery = true)
+    int removeGuideFromTravel(@Param("gID") Long gID, @Param("tID") Long tID);
 }

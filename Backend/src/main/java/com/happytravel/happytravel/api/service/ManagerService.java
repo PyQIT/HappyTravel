@@ -16,4 +16,5 @@ public interface ManagerService {
     int updateSalary(Long salary, Long eID);
     int updateOffice(Long oID, Long eID);
     int updatePosition(String position, Long eID);
+    int removeGuideFromTravel(Long gID, Long tID);
 }

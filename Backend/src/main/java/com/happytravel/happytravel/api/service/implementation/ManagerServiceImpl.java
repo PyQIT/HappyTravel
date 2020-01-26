@@ -39,4 +39,8 @@ public class ManagerServiceImpl implements ManagerService {
     public int updateOffice(Long oID, Long eID) { return managerRepository.updateOffice(oID, eID);}
     @Override
     public int updatePosition(String position, Long eID) { return managerRepository.updateOffice(position, eID);}
+    @Override
+    public int removeGuideFromTravel(Long gID, Long tID){
+        return managerRepository.removeGuideFromTravel(gID, tID);
+    }
 }

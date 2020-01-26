@@ -173,4 +173,11 @@ public class ManagerController {
             return hotelService.addHotel(hotelService.getMaxId() + 1, hotelName, aID);
         }
     }
+    @GetMapping("/removeGuideFromTravel")
+    public int removeGuideFromTravel(@RequestParam Long loggedUser, @RequestParam Long guideID, @RequestParam Long travelID){
+        if(!isManager(loggedUser)) return -1;
+        else{
+            return managerService.removeGuideFromTravel(guideID, travelID);
+        }
+    }
 }
