@@ -46,4 +46,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
     @Query(value = "update User set password = :pass where id = :uID", nativeQuery = true)
     int changePass(@Param("pass") String pass, @Param("uID") Long uID);
+    @Query(value = "select c.id from Client c, Person p where p.userID = :uID and p.id = c.personID", nativeQuery = true)
+    Long getClientIdByUserId(@Param("uID") Long uID);
 }

@@ -51,4 +51,7 @@ public class UserServiceImpl implements UserService {
     public int changePass(String pass, Long uID){
         return userRepository.changePass(pass, uID);
     }
+    public Long getClientIdByUserId(Long uID){
+        return userRepository.getClientIdByUserId(uID);
+    }
 }

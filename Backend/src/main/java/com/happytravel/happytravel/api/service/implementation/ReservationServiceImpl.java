@@ -50,4 +50,5 @@ public class ReservationServiceImpl implements ReservationService {
     public int setRatingType(String rType, Long rID, Long cID){
         return reservationRepository.setRatingType(rType, rID, cID);
     }
+
 }
