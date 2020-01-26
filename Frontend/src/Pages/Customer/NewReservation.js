@@ -74,7 +74,7 @@ class NewReservation extends React.Component{
         return(
             <div>
                 <p>Register a new reservation</p>
-                <div className='contentBlock'>
+                <div className='textBlock'>
                     <h1>{this.props.trip.hotelID.adresID.country}  </h1>
                     Hotel: {this.props.trip.hotelID.hotelName},  {this.props.trip.hotelID.adresID.city}<br/>
                     Starts: {(new Date(this.props.trip.startDate)).toLocaleDateString()}<br/>

@@ -1,4 +1,5 @@
 import React from "react";
+import EditTrip from "./EditTrip";
 
 class TripListElement extends React.Component{
     constructor(props) {
@@ -26,8 +27,13 @@ class TripListElement extends React.Component{
 
     }
 
+    editTrip(){
+        this.props.switch(<EditTrip trip={this.props.trip} loggedUser={this.props.loggedUser} switch={this.props.switch}/>);
+    }
+
     clicked(){
         if(this.props.action === 2) this.deleteTrip();
+        if(this.props.action === 1) this.editTrip();
     }
 
     render() {
