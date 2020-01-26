@@ -83,7 +83,7 @@ class NewReservation extends React.Component{
                 </div>
                 <form>
                     <table>
-                        <tbody>
+                        <tbody className='textBlock'>
                         <tr>
                             <td>
                                 Number of adults
@@ -140,7 +140,7 @@ class NewReservation extends React.Component{
                                 {(this.state.touring)?(parseInt(this.props.trip.entertainmentCost)) + "zł": null}
                             </td>
                         </tr>
-                        <tr>
+                        <tr >
                             <td>
 
                             </td>
