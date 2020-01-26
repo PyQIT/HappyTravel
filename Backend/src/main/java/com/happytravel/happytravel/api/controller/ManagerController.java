@@ -152,9 +152,9 @@ public class ManagerController {
     public int deleteTravel(@RequestParam Long travelID, @RequestParam Long loggedUser){
         if(!isManager(loggedUser)) return -1;
         else {
-            if(reservationService.deleteReservationByTravelID(travelID) == 0) return 0;
-            if(guideTravelService.deleteByTravelID(travelID) == 0) return 0;
-            return travelService.deleteTravel(travelID);
+           reservationService.deleteReservationByTravelID(travelID);
+           guideTravelService.deleteByTravelID(travelID);
+           return travelService.deleteTravel(travelID);
         }
     }
     @GetMapping("/addAdress")

@@ -20,7 +20,6 @@ class Teaser extends React.Component {
 
     pickColor(){
         const n =(this.state.colors[Math.floor(Math.random()*this.state.colors.length)]);
-        console.log("n = " + n);
         this.setState({
             color: n
         })

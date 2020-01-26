@@ -26,7 +26,6 @@ class SignUp extends React.Component {
 
     signUp(){
         let correct = true;
-        console.log("signUp()");
         if(this.state.pass !== this.state.pass2){
             correct = false;
             this.setState((prevState, props) => ({
@@ -46,15 +45,12 @@ class SignUp extends React.Component {
 
         if(correct){
             if(this.state.login && this.state.pass && this.state.fname && this.state.lname && this.state.email && this.state.phone && this.state.pnumber){
-                console.log(this.state.pass + " = " + this.state.pass2);
                 const url ="http://localhost:8080/signup?login=" + this.state.login + "&pass=" + this.state.pass + "&name=" + this.state.fname + "&lastName=" + this.state.lname
-                    + "&email=" + this.state.email + "&pesel=" + this.state.pnumber + "&phoneNumber=" + this.state.phone
-                console.log(url);
+                    + "&email=" + this.state.email + "&pesel=" + this.state.pnumber + "&phoneNumber=" + this.state.phone;
                 fetch(url)
                     .then(response => response.json())
                     .then(data => {
                         let r;
-                        console.log(data);
                         if (data === 0) {
                             r = "Dodano pomyslnie";
                             this.setState({
