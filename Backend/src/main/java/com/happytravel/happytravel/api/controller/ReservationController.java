@@ -76,6 +76,6 @@ public class ReservationController {
             if(ratingType.equals(tab[i].name()))
                 r=tab[i];
         }
-        return reservationService.setRatingType(r.name(), reservationID, loggedUser);
+        return reservationService.setRatingType(r.name(), reservationID, userService.getClientIdByUserId(loggedUser));
     }
 }

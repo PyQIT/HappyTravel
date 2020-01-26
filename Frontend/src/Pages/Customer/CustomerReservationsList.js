@@ -31,8 +31,10 @@ class CustomerReservationsList extends React.Component{
         console.log(this.state.ratingValue);
         let url = "http://localhost:8080/rateTravel?"+"ratingType="+this.state.ratingValue+"&reservationID="+rid+"&loggedUser="+cid;
         console.log(url);
-        fetch(url).then(response => response.json());
-        this.props.refresh();
+        fetch(url).then(response => response.json())
+            .then(data => {
+            this.props.refresh();
+        });
     }
 
     render(){
