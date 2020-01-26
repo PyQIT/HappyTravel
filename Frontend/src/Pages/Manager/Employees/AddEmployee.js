@@ -73,12 +73,12 @@ class AddEmployee extends React.Component{
 
                         <div>
                             <div className='formField'>Personal number:</div>
-                            <div className='formField'><input type='text' name='pnumber' maxLength="25" onChange={this.handleChange}/></div><br/>
+                            <div className='formField'><input type='number' name='pnumber' maxLength="25" onChange={this.handleChange}/></div><br/>
                         </div>
                         <h1>Contact</h1><hr/>
                         <div>
                             <div className='formField'>phone:</div>
-                            <div className='formField'><input type='text' name='phone' maxLength="25" onChange={this.handleChange}/></div><br/>
+                            <div className='formField'><input type='number' name='phone' maxLength="25" onChange={this.handleChange}/></div><br/>
                         </div>
                         <div>
                             <div className='formField'>e-mail:</div>
