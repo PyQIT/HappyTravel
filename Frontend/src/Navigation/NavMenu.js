@@ -1,18 +1,19 @@
 import React from "react";
 
 import Employees from "../Pages/Manager/Employees/Employees";
-import Offices from "../Pages/Manager/Office/Offices";
+import Offices from "../Pages/Contact/Offices";
 import UserSettings from "../Pages/User/UserSettings";
 import TripList from "../Pages/Manager/Trips/TripList";
 import AvailableTravels from "../Pages/Customer/AviableTravels";
 import About from "../Pages/About";
 import GuideTrips from "../Pages/Guide/GuideTrips";
+import Contact from "../Pages/Contact";
 
 class NavMenu extends React.Component{
 
     getMenu(){
         let browse = (
-            <button className='panelButton' onMouseDown = {() => this.props.switch(<AvailableTravels loggedUser={this.props.loggedUser.id} switch={this.props.switch}/>)}>Browse</button>
+            <button className='panelButton' onMouseDown = {() => this.props.switch(<AvailableTravels loggedUser={(this.props.loggedUser)?this.props.loggedUser.id:null} switch={this.props.switch}/>)}>Browse</button>
         );
         let userMenu;
         if(this.props.type === 'Klient'){
@@ -50,7 +51,7 @@ class NavMenu extends React.Component{
         const genericMenu = (
             <div>
                 <button className='panelButton' onMouseDown={()=> this.props.switch(<About/>)}>About us</button>
-                <button className='panelButton'>Contact</button>
+                <button className='panelButton' onMouseDown={()=> this.props.switch(<Contact/>)}>Contact</button>
             </div>
         );
         return(

@@ -1,5 +1,5 @@
 import React from "react";
-import OfficeListElement from "./OfficeListElement";
+import OfficeListElement from "../Manager/Office/OfficeListElement";
 
 class Offices extends  React.Component {
     constructor(props) {
