@@ -81,7 +81,7 @@ class CustomerReservationsList extends React.Component{
                             <td>Touring included:</td><td>{(this.props.crItem.entertaimentType==='NONE')?"No":"Yes"}</td>
                         </tr>
                         {(this.props.showHistory === false)?<tr><td></td><td><button onMouseDown={()=>this.handleCancelReservation(this.props.crItem.id,this.props.loggedUser.id)}>Cancel</button></td></tr>
-                            :((this.props.crItem.ratingType === "NONE")?<tr><td><select value={this.state.ratingValue} onChange={this.handleRatingChange}><option value="BAD">Bad</option><option value="AVERAGE">Average</option><option value="OK">Ok</option><option value="GOOD">Good</option><option value="BEST">Best</option></select></td><td><button onMouseDown={()=>this.handleSendRating(this.props.crItem.id,this.props.loggedUser.id)}>Rate!</button></td></tr>
+                            :((this.props.crItem.ratingType === "NONE")?<tr><td><select value={this.state.ratingValue} onChange={this.handleRatingChange}><option value="BAD">Bad</option><option value="AVERAGE">Average</option><option value="OK">Ok</option><option value="GOOD">Good</option><option value="BEST">Best</option></select></td><td><button onMouseDown={()=>this.handleSendRating(this.props.crItem.id,this.props.loggedUser.id)} className='blueButton'>Rate!</button></td></tr>
                                 :<tr><td>Rated:</td><td>{this.props.crItem.ratingType}</td></tr>)}
                     </tbody>
                 </table>
