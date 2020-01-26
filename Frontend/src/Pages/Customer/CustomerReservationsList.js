@@ -4,7 +4,12 @@ class CustomerReservationsList extends React.Component{
 
     constructor(props){
         super(props);
+        this.state = {
+            ratingValue: "BAD"
+        };
         this.handleCancelReservation = this.handleCancelReservation.bind(this);
+        this.handleRatingChange = this.handleRatingChange.bind(this);
+        this.handleSendRating = this.handleSendRating.bind(this);
     }
 
     handleCancelReservation(rid,cid){
@@ -14,6 +19,20 @@ class CustomerReservationsList extends React.Component{
             .then(data => {
                 this.props.refresh();
                 });
+    }
+
+    handleRatingChange(event){
+        this.setState({
+            ratingValue:event.target.value
+        });
+    }
+
+    handleSendRating(rid,cid){
+        console.log(this.state.ratingValue);
+        let url = "http://localhost:8080/rateTravel?"+"ratingType="+this.state.ratingValue+"&reservationID="+rid+"&loggedUser="+cid;
+        console.log(url);
+        fetch(url).then(response => response.json());
+        this.props.refresh();
     }
 
     render(){
@@ -59,7 +78,9 @@ class CustomerReservationsList extends React.Component{
                         <tr>
                             <td>Touring included:</td><td>{(this.props.crItem.entertaimentType==='NONE')?"No":"Yes"}</td>
                         </tr>
-                        {(this.props.showHistory === false)?<tr><td></td><td><button className='blueButton' onMouseDown={()=>this.handleCancelReservation(this.props.crItem.id,this.props.loggedUser.id)}>Cancel</button></td></tr>:""}
+                        {(this.props.showHistory === false)?<tr><td></td><td><button onMouseDown={()=>this.handleCancelReservation(this.props.crItem.id,this.props.loggedUser.id)}>Cancel</button></td></tr>
+                            :((this.props.crItem.ratingType === "NONE")?<tr><td><select value={this.state.ratingValue} onChange={this.handleRatingChange}><option value="BAD">Bad</option><option value="AVERAGE">Average</option><option value="OK">Ok</option><option value="GOOD">Good</option><option value="BEST">Best</option></select></td><td><button onMouseDown={()=>this.handleSendRating(this.props.crItem.id,this.props.loggedUser.id)}>Rate!</button></td></tr>
+                                :<tr><td>Rated:</td><td>{this.props.crItem.ratingType}</td></tr>)}
                     </tbody>
                 </table>
             </div>
