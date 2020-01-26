@@ -56,7 +56,7 @@ public class ReservationController {
     @GetMapping("/cancelReservation")
     public int cancelReservation(@RequestParam Long reservationID, @RequestParam Long clientID){
         if(reservationService.checkIfTravelStarted(reservationID, new Date()) == null) return -1;
-        else return reservationService.cancelReservation(reservationID, userService.getClientIdByUserId(clientid));
+        else return reservationService.cancelReservation(reservationID, userService.getClientIdByUserId(clientID));
     }
     @GetMapping("/deleteReservationByTravelID")
     public int deleteReservationByTravelID(@RequestParam Long reservationID){
