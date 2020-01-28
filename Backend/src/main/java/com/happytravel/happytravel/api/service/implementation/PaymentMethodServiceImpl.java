@@ -17,7 +17,7 @@ public class PaymentMethodServiceImpl implements PaymentMethodService {
 
     @Override
     public List<PaymentMethod> getPaymentMethods(){
-        return paymentMethodRepository.getAllPaymenMethods();
+        return paymentMethodRepository.getAllPaymentMethods();
     }
     @Override
     public int addPaymentMethod(Long id, String cardCode, Long cardNr, Date expires, Long clientID){

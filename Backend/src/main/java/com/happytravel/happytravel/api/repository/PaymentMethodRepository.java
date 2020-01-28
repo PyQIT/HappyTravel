@@ -15,7 +15,7 @@ import java.util.Date;
 public interface PaymentMethodRepository extends JpaRepository<PaymentMethod, Long> {
 
     @Query(value = "select * from paymentMethod", nativeQuery = true)
-    List<PaymentMethod> getAllPaymenMethods();
+    List<PaymentMethod> getAllPaymentMethods();
     @Modifying
     @Transactional
     @Query(value = "insert into paymentMethod(id, cardcode, cardnr, expires, clientid) values(:id, :cardCode, :cardNr, :expires, :clientID)", nativeQuery = true)
