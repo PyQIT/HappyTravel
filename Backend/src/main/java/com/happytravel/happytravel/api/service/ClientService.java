@@ -9,4 +9,5 @@ public interface ClientService {
     List<Client> getClients();
     Long getMaxId();
     int insertClient(Long id, Long personId);
+    Long getClientIdByUserId(Long userID);
 }

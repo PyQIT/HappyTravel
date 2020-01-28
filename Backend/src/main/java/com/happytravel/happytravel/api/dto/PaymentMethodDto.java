@@ -14,6 +14,6 @@ public class PaymentMethodDto {
 	private Client clientID;
 	private Long cardNr;
 	private Date expires;
-	private Long cardCode;
+	private String cardCode;
     
 }

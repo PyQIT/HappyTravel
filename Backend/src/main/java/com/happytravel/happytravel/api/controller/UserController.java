@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Random;
+import java.util.Date;
 
 @CrossOrigin
 @RestController
@@ -19,11 +21,8 @@ public class UserController {
 
     private final UserService userService;
     private final PersonService personService;
-    private final EmployeeService employeeService;
     private final ClientService clientService;
-    private final ManagerService managerService;
-    private final GuideService guideService;
-    private final SellerService sellerService;
+    private final EmployeeService employeeService;
 
     @GetMapping("/users")
     @ResponseStatus(HttpStatus.OK)
@@ -39,7 +38,14 @@ public class UserController {
         if (user == null) {
             result = -1;
             return "{\"result\":" + result + ", \"user\": null}";
-        } else result = 0;
+        }
+        if(!userService.getUserType(login).equals("Klient")){
+            if(employeeService.getFiringDateByUserID(userService.getUserIdByLogin(login))!=null){
+                result = -1;
+                return "{\"result\":" + result + ", \"user\": null}";
+            }
+        }
+        result = 0;
         return "{\"result\":" + result + ", \"user\":" + user.toString() + "}";
     }
 
@@ -60,29 +66,10 @@ public class UserController {
             if (result == 0) return -3;
             return 0;
         }
-        // Rejestracja pracownika (Do późniejszego wykorzystania)
-                    /*else {
-                        Long employeeId = employeeService.getMaxId()+1;
-                        result = employeeService.insertEmployee(employeeId, null, new Date(), userType, 5000l, 2l, personId);
-                        if (result == 0) return -2;
-                        if (userType == "Kierownik"){
-                            Long managerId = managerService.getMaxId()+1;
-                            result = managerService.insertManager(managerId, employeeId);
-                            if(result == 0) return -2;
-                        }
-                        else if (userType == "Przewodnik"){
-                            Long guideId = guideService.getMaxId()+1;
-                            result = guideService.insertGuide(guideId, employeeId);
-                            if(result == 0) return -2;
-                        }
-                        else if (userType == "Sprzedawca"){
-                            Long sellerId = sellerService.getMaxId()+1;
-                            result = sellerService.insertSeller(sellerId, employeeId);
-                            if(result == 0) return -2;
-                        }
-                        return 0;
-                    }
-                     */
-        //return -2;
+    }
+    @GetMapping("/changePass")
+    public int changePass(@RequestParam String oldPass, @RequestParam String newPass, @RequestParam Long loggedUser){
+        if(userService.checkPassword(loggedUser, oldPass) == null) return -1;
+        else return userService.changePass(newPass, loggedUser);
     }
 }

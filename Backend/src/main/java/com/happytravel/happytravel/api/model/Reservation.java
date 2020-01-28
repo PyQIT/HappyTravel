@@ -24,7 +24,7 @@ public class Reservation{
 	private Client clientID;
 
     @ManyToOne
-	@JoinColumn(name = "sellerID", referencedColumnName = "id")
+	@JoinColumn(name = "sellerID", referencedColumnName = "id", nullable = true)
 	private Seller sellerID;
 
     @ManyToOne
@@ -54,12 +54,11 @@ public class Reservation{
     @Enumerated(EnumType.STRING)
     private EntertaimentType entertaimentType;
 
-    @Column(name = "ratingtype")
+    @Column(name = "ratingtype", nullable = true)
     @Enumerated(EnumType.STRING)
     private RatingType ratingType;
 
-    @Column(name = "paymenttype", nullable = false)
-    @NotNull(message = "Payment type cannot be empty.")
+    @Column(name = "paymenttype", nullable = true)
     @Enumerated(EnumType.STRING)
     private PaymentType paymentType;
 }

@@ -24,4 +24,8 @@ public class SellerServiceImpl implements SellerService {
     public int insertSeller(Long id, Long employeeId){
         return sellerRepository.insertSeller(id, employeeId);
     }
+    @Override
+    public Long getSellerIdByUserId(Long uID){
+        return sellerRepository.getSellerIdByUserId(uID);
+    }
 }

@@ -21,4 +21,6 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     @Transactional
     @Query(value = "insert into Client (id, personId) values (:id, :personId)", nativeQuery = true)
     int insertClient(@Param("id") Long id, @Param("personId") Long personid);
+    @Query(value = "Select Client.id from Client, Person where Person.userID = :userID and Client.PersonID = Person.ID", nativeQuery = true)
+    Long getClientIdByUserId(@Param("userID") Long userID);
 }

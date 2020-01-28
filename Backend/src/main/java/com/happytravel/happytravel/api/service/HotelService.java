@@ -7,5 +7,6 @@ import java.util.List;
 public interface HotelService {
 
     List<Hotel> getHotels();
-
+    int addHotel(Long id, String hName,Long aID);
+    Long getMaxId();
 }

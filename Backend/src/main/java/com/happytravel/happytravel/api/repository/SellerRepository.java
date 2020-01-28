@@ -21,5 +21,6 @@ public interface SellerRepository extends JpaRepository<Seller, Long> {
     @Transactional
     @Query(value = "insert into seller (id, employeeId) values (:id, :employeeId)", nativeQuery = true)
     int insertSeller(@Param("id") Long id, @Param("employeeId") Long employeeId);
-
+    @Query(value = "select s.id from Person p, Employee e, Seller s where p.userID = :uID and e.personID = p.id and e.id = s.employeeID", nativeQuery = true)
+    Long getSellerIdByUserId(@Param("uID") Long uID);
 }

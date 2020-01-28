@@ -1,12 +1,14 @@
 import React from 'react';
-import './App.css'
+
 
 
 import MainPage from './Pages/MainPage.js'
 import SignUp from './Authorization/SignUp.js'
 import SignIn from './Authorization/SignIn.js'
+import NavMenu from "./Navigation/NavMenu";
 
 import baner from './baner.png'
+
 
 class App extends React.Component {
 
@@ -14,7 +16,6 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log("App constructor()");
         this.changeScreen = this.changeScreen.bind(this);
         this.signIn = this.signIn.bind(this);
         this.signOut = this.signOut.bind(this);
@@ -22,35 +23,36 @@ class App extends React.Component {
 
         this.state = {
             signedIn: false,
-            user: {}
-
+            user: {},
+            dbdata: [],
+            trip: {},
+            trips: [],
         }
 
     }
     componentDidMount() {
-        console.log("App componentDidMount()");
         this.setState((prevState, props) => ({
-            currentScreen: <MainPage />
+            currentScreen: <MainPage switch={this.changeScreen} loggedUser={(this.state.signedIn)?this.state.user.id:null}/>
         }));
-
-
     }
 
 
     changeScreen(screen){
-        console.log("aaa!");
         this.setState((prevState, props) => ({
             currentScreen: screen
         }));
     }
 
     signIn(i, newUser){
-        if(i == 1) {
+        if(i === 1) {
             this.setState((prevState, props) => ({
                 user: newUser,
-                currentScreen: prevState.currentScreen,
-                signedIn: true
+                signedIn: true,
+                currentScreen: null,
             }));
+            this.setState({
+                currentScreen: <MainPage switch={this.changeScreen} loggedUser={newUser.id} />,
+            })
         }
     }
     signOut(){
@@ -59,6 +61,7 @@ class App extends React.Component {
                 currentScreen: prevState.currentScreen,
                 signedIn: false
             }));
+            this.changeScreen( <MainPage switch={this.changeScreen} loggedUser={this.state.user.id}/>)
     }
 
 
@@ -71,13 +74,14 @@ class App extends React.Component {
     }
 
     render(){
-        let loginWindow
+        let loginWindow;
         if(this.state.signedIn){
             loginWindow = (
                 <div className='signInScreen'>
-                    Signed in as {this.state.user.login}
-                    <button className='blueButton' onMouseDown={this.signOut}>Sign Out</button>
+                    <p>Signed in as {this.state.user.login}</p>
+                    <button className='blueButton' onMouseDown={this.signOut}>Sign Out</button><hr/>
                 </div>
+
             )
         }
         else{
@@ -96,14 +100,15 @@ class App extends React.Component {
       return (
           <div>
               <div className = 'NAGLOWEK'>
-                  <img onMouseDown={()=> this.changeScreen(<MainPage switch={this.changeScreen}/>)} src ={baner} style={{width: '100%'}}></img>
+                  <img alt = 'baner.png' onMouseDown={()=> this.changeScreen(<MainPage switch={this.changeScreen} loggedUser={(this.state.signedIn)?this.state.user.id:null}/>)} src ={baner} style={{width: '100%'}}></img>
               </div>
               <div>
                   <div className = 'MENU'>
                       {loginWindow}
+                      <NavMenu type={this.state.user.userType} switch={this.changeScreen} loggedUser={(this.state.signedIn?this.state.user:null)}/>
                   </div>
                   <div className = 'TRESC'>
-                      {this.state.currentScreen}
+                          {this.state.currentScreen}
                   </div>
               </div>
               <div className = 'STOPKA'>

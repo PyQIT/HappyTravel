@@ -29,6 +29,7 @@ html, body {
 .TRESC {
     width: 70%;
     float: left;
+    padding-left: 20px;
 
 }
 
@@ -38,19 +39,9 @@ html, body {
     background-color:  darkslateblue;
 }
 
-.tripElement{
-    background-color: cornflowerblue;
-    border: dashed crimson;
-    text-align: left;
-    margin-bottom: 5px;
-}
-
 .signInScreen{
-    width: 100%;
-    overflow: hidden;
+
     background-color: orange;
-    border: darkslateblue 2px;
-    border-style: ridge;
 }
 
 .signUpScreen{
@@ -78,5 +69,137 @@ html, body {
     padding:10px 50px;
     text-decoration:none;
     text-shadow:0px 1px 0px #263666;
+}
+
+.blueButton:hover {
+    background: cornflowerblue;
+}
+
+.panelButton {
+    background-color:#35a152;
+    border-radius:10px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:17px;
+    padding:18px 31px;
+    width: 100%;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+}
+.panelButton:hover {
+    background-color: mediumseagreen;
+}
+
+.panelSpecialButton {
+    background-color: crimson;
+    border-radius:10px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:17px;
+    padding:18px 31px;
+    width: 100%;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+}
+.panelSpecialButton:hover {
+    background-color: indianred;
+}
+
+p{
+    background: chocolate;
+    border-radius:10px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    text-align: center;
+    width: 100%;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+ }
+
+.niceTable{
+    width: 100%;
+    border: 2px white;
+    align: center;
+
+}
+
+.niceTable tr:nth-child(even){
+    background: #FFF;
+}
+.niceTable tr:nth-child(odd){
+    background: cornsilk;
+}
+
+.actionCell{
+    background: darkblue;
+    color: white;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.actionCell:hover{
+    background: #415989;
+}
+
+.formField{
+    width: 40%;
+    float: left
+}
+
+.contentBlock{
+     width: 100%;
+    border-radius:39px;
+    border:8px solid #ffffff;
+     background-color: moccasin;
+     color: black;
+     text-align: center;
+     padding: 10px;
+     margin: 10px;
+ }
+
+.textBlock{
+    width: 100%;
+    border-radius:39px;
+    border:8px solid #ffffff;
+    background-color: moccasin;
+    color: black;
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+
+
+.teaser {
+    width: 50%;
+    border-radius:39px;
+    border:8px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:17px;
+    background-color: seagreen;
+    padding:32px 76px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+    margin: 10px;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 

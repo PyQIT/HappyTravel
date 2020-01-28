@@ -25,4 +25,9 @@ public class GuideController {
         List<Guide> guide = guideService.getGuides();
         return guide.stream().map(GuideTransformer::convertToDto).collect(Collectors.toList());
     }
+    @GetMapping("/getGuidesOnTravel")
+    public List<GuideDto> getGuidesOnTravel(@RequestParam Long travelID){
+        return guideService.getGuidesOnTravel(travelID).stream().map(GuideTransformer::convertToDto).collect(Collectors.toList());
+    }
+
 }

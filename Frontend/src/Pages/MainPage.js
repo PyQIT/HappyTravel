@@ -1,9 +1,10 @@
 import React from "react";
+import TeaserSlide from "./TeaserSlide";
 
 class MainPage extends React.Component{
     render() {
         return(
-            <h1>There be content</h1>
+            <TeaserSlide switch={this.props.switch} loggedUser={this.props.loggedUser}/>
         )
     }
 }

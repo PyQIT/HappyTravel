@@ -27,4 +27,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Long getMaxId(){
         return employeeRepository.getMaxId();
     }
+    @Override
+    public Date getFiringDateByUserID(Long userID) { return employeeRepository.getFiringDateByUserID(userID);}
+    @Override
+    public Employee getEmployee(Long eID) {return employeeRepository.getEmployee(eID);}
+    @Override
+    public Long countEmployeesOnPosition(String position, Long oID) {
+        return employeeRepository.countEmployeesOnPosition(position, oID);
+    }
 }

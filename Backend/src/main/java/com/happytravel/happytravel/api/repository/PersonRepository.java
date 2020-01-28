@@ -23,4 +23,10 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     @Transactional
     @Query(value = "insert into Person(id, email, name, pesel, phonenumber, surname, userid) values (:id, :email, :name, :pesel, :phonenumber, :surname, :userid)", nativeQuery=true)
     int insertPerson(@Param("id") Long id, @Param("email") String email, @Param("name") String name, @Param("pesel") Long pesel, @Param("phonenumber") String phonenumber, @Param("surname") String surname, @Param("userid") Long userid);
+    @Query(value = "Select * from Person where userid = :uID", nativeQuery = true)
+    Person getPersonByUserID(@Param("uID") Long uID);
+    @Modifying
+    @Transactional
+    @Query(value = "Update Person set email = :mail where id = :pID", nativeQuery = true)
+    int changeMail(@Param("mail") String mail, @Param("pID") Long pID);
 }

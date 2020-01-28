@@ -22,4 +22,11 @@ public class Manager{
     @ManyToOne
 	@JoinColumn(name = "employeeID", referencedColumnName = "id")
 	private Employee employeeID;
+
+    public String toString() {
+        return "{" +
+                "\"id\":\"" + id +
+                "\", \"employeeID\":\"" + employeeID +
+                "\"}";
+    }
 }

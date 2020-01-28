@@ -1,8 +1,9 @@
 package com.happytravel.happytravel.api.model.enums;
 
 public enum UserType {
-	Przewodnik,
+	Klient,
 	Kierownik,
-	Sprzedawca,
-	Klient
+	Przewodnik,
+    Sprzedawca,
+	NONE
 }

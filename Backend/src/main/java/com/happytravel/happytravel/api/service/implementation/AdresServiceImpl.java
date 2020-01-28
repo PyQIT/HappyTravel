@@ -22,5 +22,11 @@ public class AdresServiceImpl implements AdresService {
     public List<Adres> getAdressByCountry(String country){
         return adresRepository.getAdressByCountry(country);
     }
+    public int addAdress(Long id, String aNR, String city,  String country, String hNR, String street){
+        return adresRepository.addAdress(id, aNR, city, country, hNR, street);
+    }
+    public Long getMaxId(){
+        return adresRepository.getMaxId();
+    }
 
 }

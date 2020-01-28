@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Date;
 
 @RequiredArgsConstructor
 @Service
@@ -16,7 +17,13 @@ public class PaymentMethodServiceImpl implements PaymentMethodService {
 
     @Override
     public List<PaymentMethod> getPaymentMethods(){
-        return paymentMethodRepository.getAllPaymenMethods();
+        return paymentMethodRepository.getAllPaymentMethods();
     }
-
+    @Override
+    public int addPaymentMethod(Long id, String cardCode, Long cardNr, Date expires, Long clientID){
+        return paymentMethodRepository.addPaymentMethod(id, cardCode, cardNr, expires, clientID);
+    }
+    public Long getMaxId(){
+        return paymentMethodRepository.getMaxId();
+    }
 }

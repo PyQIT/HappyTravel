@@ -25,4 +25,7 @@ public class GuideTravelController {
         List<GuideTravel> guideTravel = guideTravelService.getGuideTravels();
         return guideTravel.stream().map(GuideTravelTransformer::convertToDto).collect(Collectors.toList());
     }
+    public Long getMaxId(){
+        return guideTravelService.getMaxId();
+    }
 }
