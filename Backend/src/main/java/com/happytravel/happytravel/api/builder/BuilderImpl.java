@@ -1,7 +1,7 @@
 package com.happytravel.happytravel.api.builder;
 
 public class BuilderImpl implements Builder {
-    private EmployeeByType count;
+    public EmployeeByType count;
     public void create(){
         this.count = new EmployeeByType();
     }
