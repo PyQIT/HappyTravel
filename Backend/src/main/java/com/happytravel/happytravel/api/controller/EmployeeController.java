@@ -1,5 +1,6 @@
 package com.happytravel.happytravel.api.controller;
 
+import com.happytravel.happytravel.api.builder.BuilderImpl;
 import com.happytravel.happytravel.api.dto.EmployeeDto;
 import com.happytravel.happytravel.api.model.Employee;
 import com.happytravel.happytravel.api.service.EmployeeService;
@@ -10,40 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-//Builder raportu o ilości pracowników w danym biurze
-interface Builder{
-    public void create();
-    public void setAttributes(String type, Long quantity);
-    public EmployeeByType returnProduct(String type, Long quantity);
-}
-class EmployeeByType{
-    private String type;
-    private Long quantity;
-    public void set(String type, Long quantity){
-        this.type = type;
-        this.quantity = quantity;
-    }
-    @Override
-    public String toString(){
-        return "\""+type+"\": "+quantity;
-    }
-}
-class BuilderImpl implements Builder{
-    private EmployeeByType count;
-    public void create(){
-        this.count = new EmployeeByType();
-    }
-    public void setAttributes(String type, Long quantity){
-        count.set(type, quantity);
-    }
-    public EmployeeByType returnProduct(String type, Long quantity){
-        this.create();
-        this.setAttributes(type, quantity);
-        return count;
-    }
-}
-//Koniec buildera
 
 @CrossOrigin
 @RestController
