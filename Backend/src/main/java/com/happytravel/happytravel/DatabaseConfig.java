@@ -60,6 +60,7 @@ public class DatabaseConfig {
         return dataSource;
     }
 
+
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em
